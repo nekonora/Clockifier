@@ -34,7 +34,7 @@ struct NewTimeEntryView: View {
                         
                         Image("arrow_right")
                             .resizable()
-                            .frame(width: 14, height: 12)
+                            .frame(width: 20, height: 20)
                         
                         DatePicker(NewTimeEntryViewModel.Strings.formToHour,
                                    selection: $viewModel.selectedToTime,

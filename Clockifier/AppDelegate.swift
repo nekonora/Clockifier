@@ -43,7 +43,9 @@ private extension AppDelegate {
             _popover.contentSize           = NSSize(width: 400, height: 400)
             _popover.behavior              = .semitransient
             _popover.contentViewController = NSHostingController(
-                rootView: rootView.environmentObject(authManager)
+                rootView: rootView
+                    .environmentObject(authManager)
+                    .environmentObject(networkManager)
             )
             _popover.animates              = true
             return _popover

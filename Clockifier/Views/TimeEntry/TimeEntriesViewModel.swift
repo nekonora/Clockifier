@@ -27,6 +27,10 @@ class TimeEntriesViewModel: ObservableObject {
         } else {
             timeEntries = TimeEntriesAPI.shared.timeEntries
         }
+        
+        NetworkManager.shared.$lastUpdateOfTimeEntries
+            .sink { if $0 == nil { self.fetchTimeEntries(for: user.id, in: user.activeWorkspace) } }
+            .store(in: &cancellables)
     }
     
     // MARK: - Methods

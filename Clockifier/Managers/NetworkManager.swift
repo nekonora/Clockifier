@@ -37,8 +37,7 @@ class NetworkManager: ObservableObject {
     private let baseURL = URL(string: "https://api.clockify.me/api/v1")!
     
     @Published var loading = false
-    
-    var lastUpdateOfTimeEntries: Date?
+    @Published var lastUpdateOfTimeEntries: Date?
     
     // MARK: - Instance
     

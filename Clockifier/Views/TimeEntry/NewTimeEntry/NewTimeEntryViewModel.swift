@@ -89,7 +89,6 @@ private extension NewTimeEntryViewModel {
                 
             }, receiveValue: { _ in
                 NetworkManager.shared.lastUpdateOfTimeEntries = nil
-                WindowManager.shared.resizePopOver(to: .allVisible)
             })
             .store(in: &cancellables)
     }
