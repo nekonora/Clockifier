@@ -13,4 +13,5 @@ It is entirely made in SwiftUI and some necessities from Cocoa. It uses Combine 
 
 ## Usage
 
-- You just need your Clockify API Key to login with your Clockify user. The API Key can obtained in the profile settings on the Clockify web app.
+1. Build it
+2. You just need your Clockify API Key to login with your Clockify user. The API Key can obtained in the profile settings on the Clockify web app.
