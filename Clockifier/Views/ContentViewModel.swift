@@ -15,22 +15,21 @@ class ContentViewModel: ObservableObject {
 
     private var cancellables = [AnyCancellable]()
     
-    private var authManager   = AuthManager.shared
     private var windowManager = WindowManager.shared
+    
+    @Published var settingsShown = false
     
     // MARK: - Methods
     
-    func logOut() {
-        KeychainManager.shared.reset()
-        authManager.logOut()
-        windowManager.resizePopOver(to: .login)
+    func toggleSettings() {
+        settingsShown.toggle()
+        windowManager.resizePopOver(to: settingsShown ? .withSettings : .allVisible)
     }
 }
 
 extension ContentViewModel {
     
     enum Strings {
-        static let appTitle = "Clockifier"
         static let settings = "Log out"
         
         static let userPlaceholderName = "User"

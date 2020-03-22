@@ -22,25 +22,25 @@ struct NewTimeEntryView: View {
             
             HStack {
                 DatePicker(NewTimeEntryViewModel.Strings.formDay,
-                       selection: $viewModel.selectedDate,
-                       displayedComponents: .date)
+                           selection: $viewModel.selectedDate,
+                           displayedComponents: .date)
                     .labelsHidden()
                     .datePickerStyle(GraphicalDatePickerStyle())
-                
-                VStack {
+
+                VStack(alignment: .trailing) {
                     HStack {
                         DatePicker(NewTimeEntryViewModel.Strings.formFromHour,
-                               selection: $viewModel.selectedFromTime,
-                               displayedComponents: .hourAndMinute)
+                                   selection: $viewModel.selectedFromTime,
+                                   displayedComponents: .hourAndMinute)
                             .labelsHidden()
                         
-                        Image("arrow_down")
+                        Image("arrow_right")
                             .resizable()
-                            .frame(width: 12, height: 14)
+                            .frame(width: 14, height: 12)
                         
                         DatePicker(NewTimeEntryViewModel.Strings.formToHour,
-                               selection: $viewModel.selectedToTime,
-                               displayedComponents: .hourAndMinute)
+                                   selection: $viewModel.selectedToTime,
+                                   displayedComponents: .hourAndMinute)
                             .labelsHidden()
                     }
                     
@@ -48,7 +48,7 @@ struct NewTimeEntryView: View {
                         .font(.system(Font.TextStyle.caption, design: .rounded))
                         .fontWeight(.regular)
                         .padding()
-                        .frame(width: .none, height: 18, alignment: .center)
+                        .frame(minWidth: 0, maxWidth: .infinity, maxHeight: 20)
                         .background(Color(.controlAccentColor))
                         .cornerRadius(9)
                     
@@ -63,7 +63,8 @@ struct NewTimeEntryView: View {
                     Button(NewTimeEntryViewModel.Strings.addEntryButton) {
                         print(
                             self.viewModel.startDate,
-                            self.viewModel.endDate
+                            self.viewModel.endDate,
+                            self.viewModel.selectedProject?.name
                         )
                     }
                 }

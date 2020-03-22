@@ -13,8 +13,10 @@ struct TimeEntriesView: View {
     @ObservedObject private var viewModel = TimeEntriesViewModel()
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        VStack(alignment: .leading, spacing: 10) {
             NewTimeEntryView(projects: ProjectsManager.shared.projects)
+            
+            Spacer(minLength: 10)
             
             Divider()
             
@@ -39,9 +41,9 @@ struct TimeEntriesView: View {
             List(viewModel.timeEntries) {
                 TimeEntryView(timeEntry: $0)
             }
-            .listStyle(SidebarListStyle())
-            .padding(.leading, -18)
-            .padding(.trailing, -10)
+                .listStyle(SidebarListStyle())
+                .padding(.leading, -18)
+                .padding(.trailing, -10)
         }
     }
 }

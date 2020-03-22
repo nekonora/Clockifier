@@ -6,7 +6,6 @@
 //  Copyright © 2020 Filippo Zaffoni. All rights reserved.
 //
 
-import Cocoa
 import SwiftUI
 
 struct ContentView: View {
@@ -30,11 +29,6 @@ struct ContentView: View {
             } else {
                 
                 HStack(alignment: .center) {
-                    Text(ContentViewModel.Strings.appTitle)
-                        .font(.system(Font.TextStyle.headline, design: .rounded))
-                        .fontWeight(.semibold)
-                    
-                    Spacer()
                     
                     Text(authManager.currentUser?.name ?? ContentViewModel.Strings.userPlaceholderName)
                         .font(.system(Font.TextStyle.footnote, design: .rounded))
@@ -46,7 +40,22 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    Button(ContentViewModel.Strings.settings) { self.viewModel.logOut() }
+                    Button(action: {
+                        self.viewModel.toggleSettings()
+                    }) {
+                        Image("settings")
+                            .resizable()
+                            .frame(width: 14, height: 14)
+                    }
+                }
+                
+                Spacer(minLength: 20)
+                
+                if viewModel.settingsShown {
+                    
+                    Divider()
+                    
+                    SettingsView()
                 }
                 
                 Divider()

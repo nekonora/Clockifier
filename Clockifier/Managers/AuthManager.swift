@@ -30,5 +30,8 @@ class AuthManager: ObservableObject {
         loginVM?.login(apiKey)
     }
     
-    func logOut() { currentUser = nil }
+    func logOut() {
+        currentUser                                   = nil
+        NetworkManager.shared.lastUpdateOfTimeEntries = nil
+    }
 }

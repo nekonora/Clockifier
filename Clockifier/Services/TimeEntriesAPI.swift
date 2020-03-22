@@ -15,6 +15,8 @@ class TimeEntriesAPI: NetworkHandler {
     
     var manager: NetworkManager = NetworkManager.shared
     
+    var timeEntries = [TimeEntry]()
+    
     private let timeEntriesEndpoint  = "workspaces/:workspaceId/user/:userId/time-entries"
     private let newTimeEntryEndpoint = "workspaces/:workspaceId/time-entries"
     

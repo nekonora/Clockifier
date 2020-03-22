@@ -38,6 +38,8 @@ class NetworkManager: ObservableObject {
     
     @Published var loading = false
     
+    var lastUpdateOfTimeEntries: Date?
+    
     // MARK: - Instance
     
     static let shared = NetworkManager()

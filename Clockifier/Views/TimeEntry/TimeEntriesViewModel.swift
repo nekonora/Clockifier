@@ -22,7 +22,11 @@ class TimeEntriesViewModel: ObservableObject {
     init() {
         guard let user = AuthManager.shared.currentUser else { return }
         
-        fetchTimeEntries(for: user.id, in: user.activeWorkspace)
+        if needsToUpdate {
+            fetchTimeEntries(for: user.id, in: user.activeWorkspace)
+        } else {
+            timeEntries = TimeEntriesAPI.shared.timeEntries
+        }
     }
     
     // MARK: - Methods
@@ -33,9 +37,24 @@ class TimeEntriesViewModel: ObservableObject {
             .sink(receiveCompletion: {
                 DevLogManager.shared.logMessage(type: .api, message: "time entries request status: \($0)")
             }, receiveValue: {
-                self.timeEntries = $0
+                self.timeEntries                              = $0
+                TimeEntriesAPI.shared.timeEntries             = $0
+                NetworkManager.shared.lastUpdateOfTimeEntries = Date()
             })
             .store(in: &cancellables)
+    }
+}
+
+private extension TimeEntriesViewModel {
+    
+    var needsToUpdate: Bool {
+        if
+            let lastUpdate = NetworkManager.shared.lastUpdateOfTimeEntries,
+            (Date().addingTimeInterval(-300)...Date()).contains(lastUpdate) {
+            return false
+        } else {
+            return true
+        }
     }
 }
 

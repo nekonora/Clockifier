@@ -40,12 +40,12 @@ private extension AppDelegate {
     func setupPopOver(on rootView: ContentView) {
         let menuPopOver: NSPopover = {
             let _popover = NSPopover()
-            _popover.contentSize           = NSSize(width: 400, height: 600)
+            _popover.contentSize           = NSSize(width: 400, height: 400)
             _popover.behavior              = .semitransient
             _popover.contentViewController = NSHostingController(
                 rootView: rootView.environmentObject(authManager)
             )
-            _popover.animates              = false
+            _popover.animates              = true
             return _popover
         }()
 
