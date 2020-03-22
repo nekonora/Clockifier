@@ -4,7 +4,7 @@ Clokifier is a macOS menu bar application to quickly glance at and manage your C
 ## Info
 
 This is a quick utility mainly made for personal professional use, while exploring a bunch of latest frameworks from Apple.
-It is entirely made in SwiftUI and some necessary things from Cocoa. It uses Combine for network calls and UI updates.
+It is entirely made in SwiftUI and some necessities from Cocoa. It uses Combine for network calls and UI updates.
 
 ## Requirments
 
