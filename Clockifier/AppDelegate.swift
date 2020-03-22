@@ -31,6 +31,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ aNotification: Notification) { }
+    
+    func applicationWillResignActive(_ notification: Notification) { menuBarVC.performClose(nil) }
 }
 
 private extension AppDelegate {
@@ -39,7 +41,7 @@ private extension AppDelegate {
         let menuPopOver: NSPopover = {
             let _popover = NSPopover()
             _popover.contentSize           = NSSize(width: 400, height: 600)
-            _popover.behavior              = .transient
+            _popover.behavior              = .semitransient
             _popover.contentViewController = NSHostingController(
                 rootView: rootView.environmentObject(authManager)
             )
@@ -69,6 +71,7 @@ private extension AppDelegate {
         } else {
             menuBarVC.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             menuBarVC.contentViewController?.view.window?.becomeKey()
+            NSApp.activate(ignoringOtherApps: true)
         }
     }
 }
