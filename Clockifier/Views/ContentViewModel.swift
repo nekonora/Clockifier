@@ -15,6 +15,16 @@ class ContentViewModel: ObservableObject {
 
     private var cancellables = [AnyCancellable]()
     
+    private var authManager   = AuthManager.shared
+    private var windowManager = WindowManager.shared
+    
+    // MARK: - Methods
+    
+    func logOut() {
+        KeychainManager.shared.reset()
+        authManager.logOut()
+        windowManager.resizePopOver(to: .login)
+    }
 }
 
 extension ContentViewModel {

@@ -23,7 +23,7 @@ struct ContentView: View {
         
         VStack(alignment: .center) {
             
-            if self.authManager.currentUser == nil {
+            if authManager.currentUser == nil {
                 
                 LoginView()
                 
@@ -46,10 +46,7 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    Button(ContentViewModel.Strings.settings) {
-                        KeychainManager.shared.reset()
-                        self.authManager.logOut()
-                    }
+                    Button(ContentViewModel.Strings.settings) { self.viewModel.logOut() }
                 }
                 
                 Divider()

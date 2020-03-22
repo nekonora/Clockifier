@@ -50,7 +50,7 @@ private extension AppDelegate {
         }()
 
         WindowManager.shared.popOver = menuPopOver
-        menuBarVC = menuPopOver
+        menuBarVC                    = menuPopOver
     }
 
     func setupStatusBarItem() {
@@ -73,12 +73,5 @@ private extension AppDelegate {
             menuBarVC.contentViewController?.view.window?.becomeKey()
             NSApp.activate(ignoringOtherApps: true)
         }
-    }
-}
-
-extension AppDelegate {
-    
-    func resizePopOver() {
-        menuBarVC.contentSize = NSSize(width: 400, height: 400)
     }
 }

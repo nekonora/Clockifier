@@ -26,13 +26,15 @@ class LoginViewModel: ObservableObject {
         UserAPI.shared
             .getUser()
             .sink(receiveCompletion: {
-                self.loginError = true
+                self.loginError               = true
                 KeychainManager.shared.apiKey = nil
                 DevLogManager.shared.logMessage(type: .api, message: "user request status: \($0)")
             }, receiveValue: {
                 self.loginError = false
                 self.fetchProjects(for: $0.activeWorkspace)
                 AuthManager.shared.currentUser = $0
+                
+                WindowManager.shared.resizePopOver(to: .allVisible)
             })
             .store(in: &cancellables)
     }
