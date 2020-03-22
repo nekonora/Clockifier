@@ -1,0 +1,553 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA14C29A241D72A2004FB6B4 /* ProjectsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C299241D72A2004FB6B4 /* ProjectsManager.swift */; };
+		FA14C29C241D85FE004FB6B4 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C29B241D85FE004FB6B4 /* DateFormatter+.swift */; };
+		FA14C29E241D87BF004FB6B4 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C29D241D87BF004FB6B4 /* Date+.swift */; };
+		FA417FDE242502F6004742EC /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA417FDD242502F6004742EC /* WindowManager.swift */; };
+		FA43C12E240FF3E10014A734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C12D240FF3E10014A734 /* AppDelegate.swift */; };
+		FA43C130240FF3E10014A734 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C12F240FF3E10014A734 /* ContentView.swift */; };
+		FA43C132240FF3E50014A734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA43C131240FF3E50014A734 /* Assets.xcassets */; };
+		FA43C135240FF3E50014A734 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA43C134240FF3E50014A734 /* Preview Assets.xcassets */; };
+		FA43C138240FF3E50014A734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA43C136240FF3E50014A734 /* Main.storyboard */; };
+		FA43C141241000D20014A734 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C140241000D20014A734 /* KeychainManager.swift */; };
+		FA43C143241000DD0014A734 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C142241000DD0014A734 /* Constants.swift */; };
+		FA43C145241000E60014A734 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C144241000E60014A734 /* NetworkManager.swift */; };
+		FA43C148241014620014A734 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA43C147241014620014A734 /* KeychainSwift */; };
+		FA43C14A2410185B0014A734 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C1492410185B0014A734 /* User.swift */; };
+		FA43C15024101AF50014A734 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C14F24101AF50014A734 /* LoginView.swift */; };
+		FA43C15224106A8F0014A734 /* DevLogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C15124106A8F0014A734 /* DevLogManager.swift */; };
+		FA43C15524106B190014A734 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C15424106B190014A734 /* UserAPI.swift */; };
+		FA43C157241070EF0014A734 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C156241070EF0014A734 /* AuthManager.swift */; };
+		FA43C159241072450014A734 /* TimeEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C158241072450014A734 /* TimeEntriesView.swift */; };
+		FA43C15C241072580014A734 /* TimeEntriesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C15B241072580014A734 /* TimeEntriesAPI.swift */; };
+		FA43C15E24107F7F0014A734 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C15D24107F7F0014A734 /* LoginViewModel.swift */; };
+		FA43C16024111A230014A734 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C15F24111A230014A734 /* Project.swift */; };
+		FA43C162241132CA0014A734 /* TimeEntriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C161241132CA0014A734 /* TimeEntriesViewModel.swift */; };
+		FA43C164241148D60014A734 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C163241148D60014A734 /* SettingsView.swift */; };
+		FA43C167241162D20014A734 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C166241162D20014A734 /* ContentViewModel.swift */; };
+		FA43C169241255EC0014A734 /* NewTimeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C168241255EC0014A734 /* NewTimeEntryView.swift */; };
+		FA43C16C241259A00014A734 /* NewTimeEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C16B241259A00014A734 /* NewTimeEntryViewModel.swift */; };
+		FACE8FF82414244100EC18AD /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FF72414244100EC18AD /* TimeEntry.swift */; };
+		FACE8FFA2414282400EC18AD /* TimeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FF92414282400EC18AD /* TimeEntryView.swift */; };
+		FACE8FFE24142BB800EC18AD /* ProjectsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FFD24142BB800EC18AD /* ProjectsAPI.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FA14C299241D72A2004FB6B4 /* ProjectsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsManager.swift; sourceTree = "<group>"; };
+		FA14C29B241D85FE004FB6B4 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
+		FA14C29D241D87BF004FB6B4 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		FA417FDD242502F6004742EC /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		FA43C12A240FF3E10014A734 /* Clockifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clockifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA43C12D240FF3E10014A734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA43C12F240FF3E10014A734 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FA43C131240FF3E50014A734 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA43C134240FF3E50014A734 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA43C137240FF3E50014A734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA43C139240FF3E50014A734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA43C13A240FF3E50014A734 /* Clockifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clockifier.entitlements; sourceTree = "<group>"; };
+		FA43C140241000D20014A734 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		FA43C142241000DD0014A734 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA43C144241000E60014A734 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FA43C1492410185B0014A734 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FA43C14F24101AF50014A734 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FA43C15124106A8F0014A734 /* DevLogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevLogManager.swift; sourceTree = "<group>"; };
+		FA43C15424106B190014A734 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		FA43C156241070EF0014A734 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		FA43C158241072450014A734 /* TimeEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesView.swift; sourceTree = "<group>"; };
+		FA43C15B241072580014A734 /* TimeEntriesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesAPI.swift; sourceTree = "<group>"; };
+		FA43C15D24107F7F0014A734 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FA43C15F24111A230014A734 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		FA43C161241132CA0014A734 /* TimeEntriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesViewModel.swift; sourceTree = "<group>"; };
+		FA43C163241148D60014A734 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FA43C166241162D20014A734 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		FA43C168241255EC0014A734 /* NewTimeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTimeEntryView.swift; sourceTree = "<group>"; };
+		FA43C16B241259A00014A734 /* NewTimeEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTimeEntryViewModel.swift; sourceTree = "<group>"; };
+		FACE8FF72414244100EC18AD /* TimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntry.swift; sourceTree = "<group>"; };
+		FACE8FF92414282400EC18AD /* TimeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryView.swift; sourceTree = "<group>"; };
+		FACE8FFD24142BB800EC18AD /* ProjectsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsAPI.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA43C127240FF3E10014A734 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA43C148241014620014A734 /* KeychainSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA43C121240FF3E10014A734 = {
+			isa = PBXGroup;
+			children = (
+				FA43C12C240FF3E10014A734 /* Clockifier */,
+				FA43C12B240FF3E10014A734 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA43C12B240FF3E10014A734 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C12A240FF3E10014A734 /* Clockifier.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA43C12C240FF3E10014A734 /* Clockifier */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C12D240FF3E10014A734 /* AppDelegate.swift */,
+				FA43C14C24101AAB0014A734 /* Managers */,
+				FACE8FFC24142A1200EC18AD /* Services */,
+				FA43C14B24101A9D0014A734 /* Models */,
+				FA43C14D24101AB50014A734 /* Views */,
+				FA43C14E24101AC30014A734 /* Utilities */,
+				FA43C131240FF3E50014A734 /* Assets.xcassets */,
+				FA43C136240FF3E50014A734 /* Main.storyboard */,
+				FA43C139240FF3E50014A734 /* Info.plist */,
+				FA43C13A240FF3E50014A734 /* Clockifier.entitlements */,
+				FA43C133240FF3E50014A734 /* Preview Content */,
+			);
+			path = Clockifier;
+			sourceTree = "<group>";
+		};
+		FA43C133240FF3E50014A734 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C134240FF3E50014A734 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FA43C14B24101A9D0014A734 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C1492410185B0014A734 /* User.swift */,
+				FA43C15F24111A230014A734 /* Project.swift */,
+				FACE8FF72414244100EC18AD /* TimeEntry.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FA43C14C24101AAB0014A734 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C140241000D20014A734 /* KeychainManager.swift */,
+				FA43C156241070EF0014A734 /* AuthManager.swift */,
+				FA417FDD242502F6004742EC /* WindowManager.swift */,
+				FA43C15124106A8F0014A734 /* DevLogManager.swift */,
+				FA43C144241000E60014A734 /* NetworkManager.swift */,
+				FA14C299241D72A2004FB6B4 /* ProjectsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		FA43C14D24101AB50014A734 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C12F240FF3E10014A734 /* ContentView.swift */,
+				FA43C166241162D20014A734 /* ContentViewModel.swift */,
+				FA43C15324106B0B0014A734 /* Login */,
+				FA43C15A241072490014A734 /* TimeEntry */,
+				FA43C165241148DF0014A734 /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA43C14E24101AC30014A734 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C142241000DD0014A734 /* Constants.swift */,
+				FA14C29B241D85FE004FB6B4 /* DateFormatter+.swift */,
+				FA14C29D241D87BF004FB6B4 /* Date+.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		FA43C15324106B0B0014A734 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C14F24101AF50014A734 /* LoginView.swift */,
+				FA43C15D24107F7F0014A734 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FA43C15A241072490014A734 /* TimeEntry */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C158241072450014A734 /* TimeEntriesView.swift */,
+				FA43C161241132CA0014A734 /* TimeEntriesViewModel.swift */,
+				FACE8FFB2414282E00EC18AD /* TimeEntry */,
+				FA43C16A241255F00014A734 /* NewTimeEntry */,
+			);
+			path = TimeEntry;
+			sourceTree = "<group>";
+		};
+		FA43C165241148DF0014A734 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C163241148D60014A734 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FA43C16A241255F00014A734 /* NewTimeEntry */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C168241255EC0014A734 /* NewTimeEntryView.swift */,
+				FA43C16B241259A00014A734 /* NewTimeEntryViewModel.swift */,
+			);
+			path = NewTimeEntry;
+			sourceTree = "<group>";
+		};
+		FACE8FFB2414282E00EC18AD /* TimeEntry */ = {
+			isa = PBXGroup;
+			children = (
+				FACE8FF92414282400EC18AD /* TimeEntryView.swift */,
+			);
+			path = TimeEntry;
+			sourceTree = "<group>";
+		};
+		FACE8FFC24142A1200EC18AD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C15424106B190014A734 /* UserAPI.swift */,
+				FA43C15B241072580014A734 /* TimeEntriesAPI.swift */,
+				FACE8FFD24142BB800EC18AD /* ProjectsAPI.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA43C129240FF3E10014A734 /* Clockifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA43C13D240FF3E50014A734 /* Build configuration list for PBXNativeTarget "Clockifier" */;
+			buildPhases = (
+				FA43C126240FF3E10014A734 /* Sources */,
+				FA43C127240FF3E10014A734 /* Frameworks */,
+				FA43C128240FF3E10014A734 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Clockifier;
+			packageProductDependencies = (
+				FA43C147241014620014A734 /* KeychainSwift */,
+			);
+			productName = Clockifier;
+			productReference = FA43C12A240FF3E10014A734 /* Clockifier.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA43C122240FF3E10014A734 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Filippo Zaffoni";
+				TargetAttributes = {
+					FA43C129240FF3E10014A734 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = FA43C125240FF3E10014A734 /* Build configuration list for PBXProject "Clockifier" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA43C121240FF3E10014A734;
+			packageReferences = (
+				FA43C146241014620014A734 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+			);
+			productRefGroup = FA43C12B240FF3E10014A734 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA43C129240FF3E10014A734 /* Clockifier */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA43C128240FF3E10014A734 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA43C138240FF3E50014A734 /* Main.storyboard in Resources */,
+				FA43C135240FF3E50014A734 /* Preview Assets.xcassets in Resources */,
+				FA43C132240FF3E50014A734 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA43C126240FF3E10014A734 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA43C162241132CA0014A734 /* TimeEntriesViewModel.swift in Sources */,
+				FACE8FFE24142BB800EC18AD /* ProjectsAPI.swift in Sources */,
+				FACE8FFA2414282400EC18AD /* TimeEntryView.swift in Sources */,
+				FA43C130240FF3E10014A734 /* ContentView.swift in Sources */,
+				FA43C15524106B190014A734 /* UserAPI.swift in Sources */,
+				FA14C29A241D72A2004FB6B4 /* ProjectsManager.swift in Sources */,
+				FA43C169241255EC0014A734 /* NewTimeEntryView.swift in Sources */,
+				FA43C16C241259A00014A734 /* NewTimeEntryViewModel.swift in Sources */,
+				FACE8FF82414244100EC18AD /* TimeEntry.swift in Sources */,
+				FA43C167241162D20014A734 /* ContentViewModel.swift in Sources */,
+				FA43C15024101AF50014A734 /* LoginView.swift in Sources */,
+				FA43C141241000D20014A734 /* KeychainManager.swift in Sources */,
+				FA43C15C241072580014A734 /* TimeEntriesAPI.swift in Sources */,
+				FA14C29E241D87BF004FB6B4 /* Date+.swift in Sources */,
+				FA43C16024111A230014A734 /* Project.swift in Sources */,
+				FA43C159241072450014A734 /* TimeEntriesView.swift in Sources */,
+				FA43C14A2410185B0014A734 /* User.swift in Sources */,
+				FA417FDE242502F6004742EC /* WindowManager.swift in Sources */,
+				FA43C164241148D60014A734 /* SettingsView.swift in Sources */,
+				FA43C145241000E60014A734 /* NetworkManager.swift in Sources */,
+				FA43C15E24107F7F0014A734 /* LoginViewModel.swift in Sources */,
+				FA43C15224106A8F0014A734 /* DevLogManager.swift in Sources */,
+				FA43C12E240FF3E10014A734 /* AppDelegate.swift in Sources */,
+				FA43C143241000DD0014A734 /* Constants.swift in Sources */,
+				FA43C157241070EF0014A734 /* AuthManager.swift in Sources */,
+				FA14C29C241D85FE004FB6B4 /* DateFormatter+.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FA43C136240FF3E50014A734 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA43C137240FF3E50014A734 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA43C13B240FF3E50014A734 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FA43C13C240FF3E50014A734 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		FA43C13E240FF3E50014A734 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Clockifier/Clockifier.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Clockifier/Preview Content\"";
+				DEVELOPMENT_TEAM = 55SRM36F8Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Clockifier/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.Clockifier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FA43C13F240FF3E50014A734 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Clockifier/Clockifier.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Clockifier/Preview Content\"";
+				DEVELOPMENT_TEAM = 55SRM36F8Y;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Clockifier/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.Clockifier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA43C125240FF3E10014A734 /* Build configuration list for PBXProject "Clockifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA43C13B240FF3E50014A734 /* Debug */,
+				FA43C13C240FF3E50014A734 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA43C13D240FF3E50014A734 /* Build configuration list for PBXNativeTarget "Clockifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA43C13E240FF3E50014A734 /* Debug */,
+				FA43C13F240FF3E50014A734 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA43C146241014620014A734 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 19.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA43C147241014620014A734 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA43C146241014620014A734 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = FA43C122240FF3E10014A734 /* Project object */;
+}
