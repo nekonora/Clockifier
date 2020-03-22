@@ -19,7 +19,7 @@ class NewTimeEntryViewModel: ObservableObject {
     
     private var cancellables = [AnyCancellable]()
     
-    @Published var selectedProject: Project?
+    @Published var selectedProjectIndex = 0
     
     @Published var selectedDate     = Date()
     @Published var selectedFromTime = Date()
@@ -30,12 +30,19 @@ class NewTimeEntryViewModel: ObservableObject {
     
     private let cal = Calendar.current
     
+    private var selectedProject: Project?
+    var projects = ProjectsManager.shared.projects
+    
     var startDate = Date() { didSet { durationDesc = duration } }
     var endDate   = Date() { didSet { durationDesc = duration } }
     
     // MARK: - Lifecycle
     
     init() {
+        $selectedProjectIndex
+            .sink { self.selectedProject = self.projects[$0] }
+            .store(in: &cancellables)
+        
         $selectedDate
             .sink { self.updateDate(from: $0) }
             .store(in: &cancellables)
@@ -54,15 +61,37 @@ class NewTimeEntryViewModel: ObservableObject {
     
     // MARK: - Requests
     
-    func addNewTimeEntry(for projectId: String) {
-//        TimeEntriesAPI.shared
-//            .postNewTimeEntry(for: projectId)
-//            .sink(receiveCompletion: { _ in
-//
-//            }, receiveValue: { _ in
-//
-//            })
-//            .store(in: &cancellables)
+    func addTimeEntry() { addNewTimeEntry() }
+}
+
+private extension NewTimeEntryViewModel {
+    
+    func addNewTimeEntry() {
+        guard let projectId = selectedProject?.id else { return }
+        
+        let start = DateFormatter.iso8601FullUTC.string(from: startDate)
+        let end   = DateFormatter.iso8601FullUTC.string(from: endDate)
+        
+        let timeEntry = NewTimeEntry(start: start,
+                                     end: end,
+                                     description: description,
+                                     projectId: projectId)
+        
+        postNewEntry(timeEntry)
+    }
+    
+    func postNewEntry(_ newEntry: NewTimeEntry) {
+        guard let workspaceId = AuthManager.shared.currentUser?.activeWorkspace else { return }
+        
+        TimeEntriesAPI.shared
+            .postNewTimeEntry(newEntry, in: workspaceId)
+            .sink(receiveCompletion: { _ in
+                
+            }, receiveValue: { _ in
+                NetworkManager.shared.lastUpdateOfTimeEntries = nil
+                WindowManager.shared.resizePopOver(to: .allVisible)
+            })
+            .store(in: &cancellables)
     }
 }
 
@@ -74,6 +103,7 @@ extension NewTimeEntryViewModel {
         static let formFromHour    = "From:"
         static let formToHour      = "To:"
         static let formProject     = "Project:"
+        static let description     = "Description"
         
         static let addEntryButton  = "Add entry"
     }

@@ -64,3 +64,18 @@ struct TimeInterval: Codable, Hashable {
     let end: String
     let duration: String
 }
+
+// MARK: - New Time Entry
+
+struct NewTimeEntry: Codable {
+    
+    let start: String
+    let end: String
+
+    let description: String
+    let projectId: String
+    
+    let taskId   = ""
+    let billable = "true"
+    let tagsIds  = [String]()
+}

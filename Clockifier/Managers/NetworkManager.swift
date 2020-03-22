@@ -54,7 +54,8 @@ class NetworkManager: ObservableObject {
             var _request = URLRequest(url: endpointPath)
             _request.setValue(KeychainManager.shared.apiKey, forHTTPHeaderField: "X-Api-Key")
             _request.setValue("application/json", forHTTPHeaderField: "Accept")
-            _request.httpBody = body?.data(using: .utf8, allowLossyConversion: false)
+            _request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            _request.httpBody   = body?.data(using: .utf8, allowLossyConversion: false)
             _request.httpMethod = method.rawValue
             return _request
         }()

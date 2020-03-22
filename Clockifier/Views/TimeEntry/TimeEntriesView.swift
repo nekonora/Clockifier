@@ -14,7 +14,7 @@ struct TimeEntriesView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            NewTimeEntryView(projects: ProjectsManager.shared.projects)
+            NewTimeEntryView()
             
             Spacer(minLength: 10)
             

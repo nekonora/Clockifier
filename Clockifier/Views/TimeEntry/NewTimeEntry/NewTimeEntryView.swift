@@ -10,8 +10,6 @@ import SwiftUI
 
 struct NewTimeEntryView: View {
     
-    var projects = [Project]()
-    
     @ObservedObject private var viewModel = NewTimeEntryViewModel()
     
     var body: some View {
@@ -52,21 +50,13 @@ struct NewTimeEntryView: View {
                         .background(Color(.controlAccentColor))
                         .cornerRadius(9)
                     
-                    Picker(selection: $viewModel.selectedProject, label: Text(NewTimeEntryViewModel.Strings.formProject)) {
-                        ForEach(0 ..< projects.count) {
-                            Text(self.projects[$0].name)
-                        }
+                    Picker(selection: $viewModel.selectedProjectIndex, label: Text(NewTimeEntryViewModel.Strings.formProject)) {
+                        ForEach(0 ..< viewModel.projects.count) { Text(self.viewModel.projects[$0].name) }
                     }
                     
-                    TextField("Description", text: $viewModel.description)
+                    TextField(NewTimeEntryViewModel.Strings.description, text: $viewModel.description)
                     
-                    Button(NewTimeEntryViewModel.Strings.addEntryButton) {
-                        print(
-                            self.viewModel.startDate,
-                            self.viewModel.endDate,
-                            self.viewModel.selectedProject?.name
-                        )
-                    }
+                    Button(NewTimeEntryViewModel.Strings.addEntryButton) { self.viewModel.addTimeEntry() }
                 }
             }
         }

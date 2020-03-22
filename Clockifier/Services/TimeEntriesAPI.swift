@@ -11,6 +11,10 @@ import Foundation
 
 class TimeEntriesAPI: NetworkHandler {
     
+    enum TimeEntriesError: Error {
+        case failedEncoding
+    }
+    
     // MARK: - Properties
     
     var manager: NetworkManager = NetworkManager.shared
@@ -39,17 +43,22 @@ class TimeEntriesAPI: NetworkHandler {
             .eraseToAnyPublisher()
     }
     
-    func postNewTimeEntry(for projectId: String,
-                          in workspaceId: String,
-                          from start: String,
-                          to end: String) -> AnyPublisher<TimeEntry, Error> {
+    func postNewTimeEntry(_ entry: NewTimeEntry,
+                          in workspaceId: String) -> AnyPublisher<TimeEntry, Error> {
         let endPoint = newTimeEntryEndpoint
             .replacingOccurrences(of: ":workspaceId", with: workspaceId)
         
-        DevLogManager.shared.logMessage(type: .api, message: "new time entry post")
-        return manager
-            .request(endPoint, method: .post)
-            .map(\.value)
-            .eraseToAnyPublisher()
+        if
+            let jsonData = try? JSONEncoder().encode(entry),
+            let jsonString = String(data: jsonData, encoding: .utf8) {
+            DevLogManager.shared.logMessage(type: .api, message: "new time entry post")
+            
+            return manager
+                .request(endPoint, method: .post, body: jsonString)
+                .map(\.value)
+                .eraseToAnyPublisher()
+        } else {
+            return Fail(error: TimeEntriesError.failedEncoding).eraseToAnyPublisher()
+        }
     }
 }
