@@ -6,6 +6,7 @@
 //  Copyright © 2020 Filippo Zaffoni. All rights reserved.
 //
 
+import Combine
 import Foundation
 
 class ProjectsManager {
@@ -14,5 +15,5 @@ class ProjectsManager {
     
     static let shared = ProjectsManager()
     
-    var projects = [Project]()
+    @Published var projects = [Project]()
 }

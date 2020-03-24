@@ -44,6 +44,7 @@ struct TimeEntriesView: View {
                 .listStyle(SidebarListStyle())
                 .padding(.leading, -18)
                 .padding(.trailing, -10)
+                .animation(.default)
         }
     }
 }

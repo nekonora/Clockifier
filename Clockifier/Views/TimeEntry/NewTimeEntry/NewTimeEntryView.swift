@@ -50,8 +50,8 @@ struct NewTimeEntryView: View {
                         .background(Color(.controlAccentColor))
                         .cornerRadius(9)
                     
-                    Picker(selection: $viewModel.selectedProjectIndex, label: Text(NewTimeEntryViewModel.Strings.formProject)) {
-                        ForEach(0 ..< viewModel.projects.count) { Text(self.viewModel.projects[$0].name) }
+                    Picker(selection: $viewModel.selectedProjectId, label: Text(NewTimeEntryViewModel.Strings.formProject)) {
+                        ForEach(ProjectsManager.shared.projects, id: \.id) { Text($0.name).tag($0.id) }
                     }
                     
                     TextField(NewTimeEntryViewModel.Strings.description, text: $viewModel.description)

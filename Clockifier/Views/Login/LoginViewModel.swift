@@ -18,6 +18,8 @@ class LoginViewModel: ObservableObject {
     @Published var loginError = false
     @Published var apiKey: String?
     
+    private var windowManager = WindowManager.shared
+    
     // MARK: - Methods
     
     func login(_ apiKey: String) {
@@ -48,6 +50,10 @@ class LoginViewModel: ObservableObject {
                 ProjectsManager.shared.projects = $0
             })
             .store(in: &cancellables)
+    }
+    
+    func quitApp() {
+        windowManager.quitApp()
     }
 }
 

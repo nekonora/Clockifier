@@ -11,4 +11,6 @@ import Foundation
 extension Collection {
     
     var hasSomething: Bool { !isEmpty }
+    
+    subscript(safe index: Index) -> Element? { indices.contains(index) ? self[index] : nil }
 }

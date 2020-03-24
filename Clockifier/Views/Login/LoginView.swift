@@ -50,6 +50,8 @@ struct LoginView: View {
                 .font(.system(Font.TextStyle.footnote, design: .rounded))
                 .fontWeight(.regular)
                 .frame(width: nil, height: 100, alignment: .center)
+            
+            Button(SettingsViewModel.Strings.quitAppButton) { self.viewModel.quitApp() }
         }
     }
 }

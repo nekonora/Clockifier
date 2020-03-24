@@ -13,4 +13,8 @@ struct Project: Codable, Hashable, Identifiable {
     let id: String
     let name: String
     let clientName: String
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

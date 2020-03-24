@@ -33,5 +33,6 @@ class AuthManager: ObservableObject {
     func logOut() {
         currentUser                                   = nil
         NetworkManager.shared.lastUpdateOfTimeEntries = nil
+        UserDefaults.lastUsedProjectId                = nil
     }
 }

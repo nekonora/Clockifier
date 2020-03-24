@@ -19,19 +19,15 @@ class NewTimeEntryViewModel: ObservableObject {
     
     private var cancellables = [AnyCancellable]()
     
-    @Published var selectedProjectIndex = 0
-    
-    @Published var selectedDate     = Date()
-    @Published var selectedFromTime = Date()
-    @Published var selectedToTime   = Date()
+    @Published var selectedProjectId = String()
+    @Published var selectedDate      = Date()
+    @Published var selectedFromTime  = Date()
+    @Published var selectedToTime    = Date()
     
     @Published var description      = String()
     @Published var durationDesc     = String()
     
     private let cal = Calendar.current
-    
-    private var selectedProject: Project?
-    var projects = ProjectsManager.shared.projects
     
     var startDate = Date() { didSet { durationDesc = duration } }
     var endDate   = Date() { didSet { durationDesc = duration } }
@@ -39,8 +35,12 @@ class NewTimeEntryViewModel: ObservableObject {
     // MARK: - Lifecycle
     
     init() {
-        $selectedProjectIndex
-            .sink { self.selectedProject = self.projects[$0] }
+        selectedProjectId    = UserDefaults.lastUsedProjectId ?? String()
+        selectedFromTime     = defaultDate(for: .start)
+        selectedToTime       = defaultDate(for: .end)
+        
+        $selectedProjectId
+            .sink { self.updateProject(with: $0) }
             .store(in: &cancellables)
         
         $selectedDate
@@ -54,9 +54,6 @@ class NewTimeEntryViewModel: ObservableObject {
         $selectedToTime
             .sink { self.updateTime(.end, from: $0) }
             .store(in: &cancellables)
-        
-        selectedFromTime = defaultDate(for: .start)
-        selectedToTime   = defaultDate(for: .end)
     }
     
     // MARK: - Requests
@@ -67,7 +64,7 @@ class NewTimeEntryViewModel: ObservableObject {
 private extension NewTimeEntryViewModel {
     
     func addNewTimeEntry() {
-        guard let projectId = selectedProject?.id else { return }
+        guard selectedProjectId.hasSomething else { return }
         
         let start = DateFormatter.iso8601FullUTC.string(from: startDate)
         let end   = DateFormatter.iso8601FullUTC.string(from: endDate)
@@ -75,7 +72,7 @@ private extension NewTimeEntryViewModel {
         let timeEntry = NewTimeEntry(start: start,
                                      end: end,
                                      description: description,
-                                     projectId: projectId)
+                                     projectId: selectedProjectId)
         
         postNewEntry(timeEntry)
     }
@@ -109,6 +106,11 @@ extension NewTimeEntryViewModel {
 }
 
 private extension NewTimeEntryViewModel {
+    
+    func updateProject(with projectId: String?) {
+        UserDefaults.lastUsedProjectId = projectId
+        print(projectId ?? "nada de nada")
+    }
     
     func updateDate(from date: Date) {
         let startHour   = cal.component(.hour, from: startDate)
