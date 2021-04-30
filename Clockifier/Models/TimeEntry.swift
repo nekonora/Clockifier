@@ -75,7 +75,7 @@ struct NewTimeEntry: Codable {
     let description: String
     let projectId: String
     
-    let taskId   = ""
-    let billable = "true"
-    let tagsIds  = [String]()
+    var taskId = ""
+    var billable = "true"
+    var tagsIds = [String]()
 }

@@ -71,3 +71,9 @@ extension NewTimeEntryView {
         return formatter
     }
 }
+
+struct NewTimeEntryView_Previews: PreviewProvider {
+    static var previews: some View {
+        NewTimeEntryView()
+    }
+}
