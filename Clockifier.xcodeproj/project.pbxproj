@@ -19,10 +19,8 @@
 		FA43C132240FF3E50014A734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA43C131240FF3E50014A734 /* Assets.xcassets */; };
 		FA43C135240FF3E50014A734 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA43C134240FF3E50014A734 /* Preview Assets.xcassets */; };
 		FA43C138240FF3E50014A734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA43C136240FF3E50014A734 /* Main.storyboard */; };
-		FA43C141241000D20014A734 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C140241000D20014A734 /* KeychainManager.swift */; };
 		FA43C143241000DD0014A734 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C142241000DD0014A734 /* Constants.swift */; };
 		FA43C145241000E60014A734 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C144241000E60014A734 /* NetworkManager.swift */; };
-		FA43C148241014620014A734 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA43C147241014620014A734 /* KeychainSwift */; };
 		FA43C14A2410185B0014A734 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C1492410185B0014A734 /* User.swift */; };
 		FA43C15024101AF50014A734 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C14F24101AF50014A734 /* LoginView.swift */; };
 		FA43C15224106A8F0014A734 /* DevLogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C15124106A8F0014A734 /* DevLogManager.swift */; };
@@ -40,6 +38,10 @@
 		FACE8FF82414244100EC18AD /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FF72414244100EC18AD /* TimeEntry.swift */; };
 		FACE8FFA2414282400EC18AD /* TimeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FF92414282400EC18AD /* TimeEntryView.swift */; };
 		FACE8FFE24142BB800EC18AD /* ProjectsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FFD24142BB800EC18AD /* ProjectsAPI.swift */; };
+		FAD1D8A626E0204A00E4F3F5 /* AppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1D8A526E0204A00E4F3F5 /* AppPreferences.swift */; };
+		FAD1D8A926E0208E00E4F3F5 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = FAD1D8A826E0208E00E4F3F5 /* KeychainAccess */; };
+		FAD1D8AB26E021C000E4F3F5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1D8AA26E021C000E4F3F5 /* APIError.swift */; };
+		FAD3321926E0229E00A745EB /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3321826E0229E00A745EB /* URL+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +60,6 @@
 		FA43C137240FF3E50014A734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA43C139240FF3E50014A734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA43C13A240FF3E50014A734 /* Clockifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clockifier.entitlements; sourceTree = "<group>"; };
-		FA43C140241000D20014A734 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		FA43C142241000DD0014A734 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA43C144241000E60014A734 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FA43C1492410185B0014A734 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -78,6 +79,9 @@
 		FACE8FF72414244100EC18AD /* TimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntry.swift; sourceTree = "<group>"; };
 		FACE8FF92414282400EC18AD /* TimeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryView.swift; sourceTree = "<group>"; };
 		FACE8FFD24142BB800EC18AD /* ProjectsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsAPI.swift; sourceTree = "<group>"; };
+		FAD1D8A526E0204A00E4F3F5 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
+		FAD1D8AA26E021C000E4F3F5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		FAD3321826E0229E00A745EB /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA43C148241014620014A734 /* KeychainSwift in Frameworks */,
+				FAD1D8A926E0208E00E4F3F5 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +144,7 @@
 				FA43C1492410185B0014A734 /* User.swift */,
 				FA43C15F24111A230014A734 /* Project.swift */,
 				FACE8FF72414244100EC18AD /* TimeEntry.swift */,
+				FAD1D8AA26E021C000E4F3F5 /* APIError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,7 +152,7 @@
 		FA43C14C24101AAB0014A734 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				FA43C140241000D20014A734 /* KeychainManager.swift */,
+				FAD1D8A526E0204A00E4F3F5 /* AppPreferences.swift */,
 				FA43C156241070EF0014A734 /* AuthManager.swift */,
 				FA417FDD242502F6004742EC /* WindowManager.swift */,
 				FA43C15124106A8F0014A734 /* DevLogManager.swift */,
@@ -177,6 +182,7 @@
 				FA14C29D241D87BF004FB6B4 /* Date+.swift */,
 				FA35D6A42427DB1A00F7072C /* UserDefaults+.swift */,
 				FA35D6A62427E1E100F7072C /* Collection+.swift */,
+				FAD3321826E0229E00A745EB /* URL+.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -254,7 +260,7 @@
 			);
 			name = Clockifier;
 			packageProductDependencies = (
-				FA43C147241014620014A734 /* KeychainSwift */,
+				FAD1D8A826E0208E00E4F3F5 /* KeychainAccess */,
 			);
 			productName = Clockifier;
 			productReference = FA43C12A240FF3E10014A734 /* Clockifier.app */;
@@ -285,7 +291,7 @@
 			);
 			mainGroup = FA43C121240FF3E10014A734;
 			packageReferences = (
-				FA43C146241014620014A734 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				FAD1D8A726E0208E00E4F3F5 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = FA43C12B240FF3E10014A734 /* Products */;
 			projectDirPath = "";
@@ -314,7 +320,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD1D8A626E0204A00E4F3F5 /* AppPreferences.swift in Sources */,
 				FA43C162241132CA0014A734 /* TimeEntriesViewModel.swift in Sources */,
+				FAD3321926E0229E00A745EB /* URL+.swift in Sources */,
 				FACE8FFE24142BB800EC18AD /* ProjectsAPI.swift in Sources */,
 				FACE8FFA2414282400EC18AD /* TimeEntryView.swift in Sources */,
 				FA43C130240FF3E10014A734 /* ContentView.swift in Sources */,
@@ -325,7 +333,6 @@
 				FACE8FF82414244100EC18AD /* TimeEntry.swift in Sources */,
 				FA43C167241162D20014A734 /* ContentViewModel.swift in Sources */,
 				FA43C15024101AF50014A734 /* LoginView.swift in Sources */,
-				FA43C141241000D20014A734 /* KeychainManager.swift in Sources */,
 				FA43C15C241072580014A734 /* TimeEntriesAPI.swift in Sources */,
 				FA14C29E241D87BF004FB6B4 /* Date+.swift in Sources */,
 				FA43C16024111A230014A734 /* Project.swift in Sources */,
@@ -337,6 +344,7 @@
 				FA35D6A72427E1E100F7072C /* Collection+.swift in Sources */,
 				FA35D6A52427DB1A00F7072C /* UserDefaults+.swift in Sources */,
 				FA43C145241000E60014A734 /* NetworkManager.swift in Sources */,
+				FAD1D8AB26E021C000E4F3F5 /* APIError.swift in Sources */,
 				FA43C15E24107F7F0014A734 /* LoginViewModel.swift in Sources */,
 				FA43C15224106A8F0014A734 /* DevLogManager.swift in Sources */,
 				FA43C12E240FF3E10014A734 /* AppDelegate.swift in Sources */,
@@ -411,7 +419,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -466,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -492,7 +500,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.Clockifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -516,7 +524,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = nknrDev.Clockifier;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -547,21 +555,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FA43C146241014620014A734 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+		FAD1D8A726E0208E00E4F3F5 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 19.0.0;
+				kind = exactVersion;
+				version = 4.2.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA43C147241014620014A734 /* KeychainSwift */ = {
+		FAD1D8A826E0208E00E4F3F5 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FA43C146241014620014A734 /* XCRemoteSwiftPackageReference "keychain-swift" */;
-			productName = KeychainSwift;
+			package = FAD1D8A726E0208E00E4F3F5 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

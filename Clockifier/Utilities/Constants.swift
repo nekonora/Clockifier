@@ -10,8 +10,12 @@ import Foundation
 
 enum Constants {
     
-    enum Keychain {
-        
-        static let apiKey   = "apiKey"
+    enum App {
+        static let keychainBundle = Bundle.main.object(forInfoDictionaryKey: "keychainBundle") as! String
+    }
+    
+    enum API {
+        static let clockifyBaseUrl = Bundle.main.object(forInfoDictionaryKey: "clockifyBaseUrl") as! StaticString
+        static let harvestBaseUrl = Bundle.main.object(forInfoDictionaryKey: "harvestBaseUrl") as! StaticString
     }
 }

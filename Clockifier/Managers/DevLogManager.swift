@@ -10,6 +10,7 @@ import Foundation
 
 enum LogMessage {
     case api
+    case storage
 }
 
 enum LogLevel {
