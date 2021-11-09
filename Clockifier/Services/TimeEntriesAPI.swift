@@ -9,7 +9,7 @@
 import Combine
 import Foundation
 
-class TimeEntriesAPI: NetworkHandler {
+final class TimeEntriesAPI: NetworkHandler {
     
     enum TimeEntriesError: Error {
         case failedEncoding

@@ -8,10 +8,9 @@
 
 import Foundation
 
-class AuthManager: ObservableObject {
+final class AuthManager: ObservableObject {
     
     // MARK: - Properties
-    
     static let shared = AuthManager()
     
     @Published var currentUser: User?
@@ -19,20 +18,20 @@ class AuthManager: ObservableObject {
     private var loginVM: LoginViewModel?
     
     // MARK: - Lifecycle
-    
-    init() { logIn() }
+    private init() {
+        logIn()
+    }
     
     // MARK: - Methods
-    
     func logIn() {
-        guard let apiKey = KeychainManager.shared.apiKey else { return }
-        loginVM = LoginViewModel()
-        loginVM?.login(apiKey)
+//        guard let apiKey = KeychainManager.shared.apiKey else { return }
+//        loginVM = LoginViewModel()
+//        loginVM?.login(apiKey)
     }
     
     func logOut() {
-        currentUser                                   = nil
-        NetworkManager.shared.lastUpdateOfTimeEntries = nil
-        UserDefaults.lastUsedProjectId                = nil
+//        currentUser                                   = nil
+//        NetworkManager.shared.lastUpdateOfTimeEntries = nil
+//        UserDefaults.lastUsedProjectId                = nil
     }
 }

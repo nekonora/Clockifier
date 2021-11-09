@@ -8,8 +8,10 @@
 
 import Foundation
 
+typealias Parameters = [String: Any?]
+
 protocol NetworkHandler: AnyObject {
-    var manager: NetworkManager { get set }
+    var manager: NetworkManager { get }
 }
 
 final class NetworkManager {
@@ -38,10 +40,8 @@ final class NetworkManager {
         case patch = "PATCH"
     }
     
-    enum Parameters {
-        case none
-        case json(body: String)
-        case url(params: [String: String])
+    enum Encoding {
+        case json, url
     }
     
     // MARK: - Properties
@@ -86,31 +86,50 @@ final class NetworkManager {
             return .failure(.generic(message: error.localizedDescription))
         }
     }
+}
+
+// MARK: - Internals
+private extension NetworkManager {
     
-    private func buildRequest(endpoint: String,
-                              service: Service,
-                              method: Method,
-                              parameters: Parameters,
-                              signed: Bool) -> URLRequest {
+    func buildRequest(endpoint: String,
+                      service: Service,
+                      method: Method,
+                      parameters: Parameters,
+                      encoding: Encoding,
+                      signed: Bool) -> URLRequest {
         var endpointPath = service.baseURL.appendingPathComponent(endpoint)
         
-        switch parameters {
-        case .url(let params):
-            for (key, value) in params {
+        switch encoding {
+        case .json:
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+                let jsonString = String(data: jsonData, encoding: String.Encoding.ascii)!
+            } catch {
+                
+            }
+        case .url:
+            parameters.forEach { key, value in
                 endpointPath.append(name: key, value: value)
             }
-        default:
-            break
         }
+        
+//        switch parameters {
+//        case .url(let params):
+//            params.forEach { key, value in
+//                endpointPath.append(name: key, value: value)
+//            }
+//        default:
+//            break
+//        }
         
         var _request = URLRequest(url: endpointPath)
         
-        switch parameters {
-        case .json(let body):
-            _request.httpBody = body.data(using: .utf8, allowLossyConversion: false)
-        default:
-            break
-        }
+//        switch parameters {
+//        case .json(let body):
+//            _request.httpBody = body.data(using: .utf8, allowLossyConversion: false)
+//        default:
+//            break
+//        }
         
         if signed {
             switch service {
