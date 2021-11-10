@@ -10,6 +10,7 @@
 		FA14C29A241D72A2004FB6B4 /* ProjectsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C299241D72A2004FB6B4 /* ProjectsManager.swift */; };
 		FA14C29C241D85FE004FB6B4 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C29B241D85FE004FB6B4 /* DateFormatter+.swift */; };
 		FA14C29E241D87BF004FB6B4 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C29D241D87BF004FB6B4 /* Date+.swift */; };
+		FA33E614273C8C10001F455C /* ClockifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33E613273C8C10001F455C /* ClockifierApp.swift */; };
 		FA35D6A52427DB1A00F7072C /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D6A42427DB1A00F7072C /* UserDefaults+.swift */; };
 		FA35D6A72427E1E100F7072C /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D6A62427E1E100F7072C /* Collection+.swift */; };
 		FA35D6A92427E36C00F7072C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D6A82427E36C00F7072C /* SettingsViewModel.swift */; };
@@ -19,7 +20,6 @@
 		FA43C130240FF3E10014A734 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C12F240FF3E10014A734 /* ContentView.swift */; };
 		FA43C132240FF3E50014A734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA43C131240FF3E50014A734 /* Assets.xcassets */; };
 		FA43C135240FF3E50014A734 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA43C134240FF3E50014A734 /* Preview Assets.xcassets */; };
-		FA43C138240FF3E50014A734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA43C136240FF3E50014A734 /* Main.storyboard */; };
 		FA43C143241000DD0014A734 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C142241000DD0014A734 /* Constants.swift */; };
 		FA43C145241000E60014A734 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C144241000E60014A734 /* NetworkManager.swift */; };
 		FA43C14A2410185B0014A734 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C1492410185B0014A734 /* User.swift */; };
@@ -50,6 +50,7 @@
 		FA14C299241D72A2004FB6B4 /* ProjectsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsManager.swift; sourceTree = "<group>"; };
 		FA14C29B241D85FE004FB6B4 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
 		FA14C29D241D87BF004FB6B4 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		FA33E613273C8C10001F455C /* ClockifierApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockifierApp.swift; sourceTree = "<group>"; };
 		FA35D6A42427DB1A00F7072C /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		FA35D6A62427E1E100F7072C /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
 		FA35D6A82427E36C00F7072C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		FA43C12F240FF3E10014A734 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA43C131240FF3E50014A734 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA43C134240FF3E50014A734 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FA43C137240FF3E50014A734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA43C139240FF3E50014A734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA43C13A240FF3E50014A734 /* Clockifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clockifier.entitlements; sourceTree = "<group>"; };
 		FA43C142241000DD0014A734 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -100,6 +100,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA33E615273C8CCC001F455C /* MenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				FA43C12F240FF3E10014A734 /* ContentView.swift */,
+				FA43C166241162D20014A734 /* ContentViewModel.swift */,
+				FA43C15324106B0B0014A734 /* Login */,
+				FA43C15A241072490014A734 /* TimeEntry */,
+				FA43C165241148DF0014A734 /* Settings */,
+			);
+			path = MenuBar;
+			sourceTree = "<group>";
+		};
+		FA33E616273C8CD6001F455C /* Window */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
 		FA43C121240FF3E10014A734 = {
 			isa = PBXGroup;
 			children = (
@@ -120,13 +139,13 @@
 			isa = PBXGroup;
 			children = (
 				FA43C12D240FF3E10014A734 /* AppDelegate.swift */,
+				FA33E613273C8C10001F455C /* ClockifierApp.swift */,
 				FA43C14C24101AAB0014A734 /* Managers */,
 				FACE8FFC24142A1200EC18AD /* Services */,
 				FA43C14B24101A9D0014A734 /* Models */,
 				FA43C14D24101AB50014A734 /* Views */,
 				FA43C14E24101AC30014A734 /* Utilities */,
 				FA43C131240FF3E50014A734 /* Assets.xcassets */,
-				FA43C136240FF3E50014A734 /* Main.storyboard */,
 				FA43C139240FF3E50014A734 /* Info.plist */,
 				FA43C13A240FF3E50014A734 /* Clockifier.entitlements */,
 				FA43C133240FF3E50014A734 /* Preview Content */,
@@ -170,11 +189,8 @@
 		FA43C14D24101AB50014A734 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FA43C12F240FF3E10014A734 /* ContentView.swift */,
-				FA43C166241162D20014A734 /* ContentViewModel.swift */,
-				FA43C15324106B0B0014A734 /* Login */,
-				FA43C15A241072490014A734 /* TimeEntry */,
-				FA43C165241148DF0014A734 /* Settings */,
+				FA33E616273C8CD6001F455C /* Window */,
+				FA33E615273C8CCC001F455C /* MenuBar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,7 +337,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA43C138240FF3E50014A734 /* Main.storyboard in Resources */,
 				FA43C135240FF3E50014A734 /* Preview Assets.xcassets in Resources */,
 				FA43C132240FF3E50014A734 /* Assets.xcassets in Resources */,
 			);
@@ -336,6 +351,7 @@
 			files = (
 				FAD1D8A626E0204A00E4F3F5 /* AppPreferences.swift in Sources */,
 				FA43C162241132CA0014A734 /* TimeEntriesViewModel.swift in Sources */,
+				FA33E614273C8C10001F455C /* ClockifierApp.swift in Sources */,
 				FAD3321926E0229E00A745EB /* URL+.swift in Sources */,
 				FACE8FFE24142BB800EC18AD /* ProjectsAPI.swift in Sources */,
 				FACE8FFA2414282400EC18AD /* TimeEntryView.swift in Sources */,
@@ -371,17 +387,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		FA43C136240FF3E50014A734 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA43C137240FF3E50014A734 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FA43C13B240FF3E50014A734 /* Debug */ = {

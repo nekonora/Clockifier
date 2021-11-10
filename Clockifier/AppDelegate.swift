@@ -9,17 +9,17 @@
 import Cocoa
 import SwiftUI
 
-@NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate {
     
     // MARK: - Properties
     var window: NSWindow!
     
-    var menuBarVC: NSPopover! { didSet {  } }
+    var menuBarVC: NSPopover! { didSet { } }
     var statusBarItem: NSStatusItem!
 
     let authManager = AuthManager.shared
     let networkManager = NetworkManager.shared
+    let windowManager = WindowManager.shared
     
     // MARK: - Lifecycle
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -38,25 +38,25 @@ private extension AppDelegate {
     func setupPopOver(on rootView: ContentView) {
         let menuPopOver: NSPopover = {
             let _popover = NSPopover()
-            _popover.contentSize           = NSSize(width: 400, height: 400)
-            _popover.behavior              = .semitransient
+            _popover.contentSize = NSSize(width: 400, height: 400)
+            _popover.behavior = .semitransient
             _popover.contentViewController = NSHostingController(
                 rootView: rootView
                     .environmentObject(authManager)
             )
-            _popover.animates              = true
+            _popover.animates = true
             return _popover
         }()
 
-        WindowManager.shared.popOver = menuPopOver
-        menuBarVC                    = menuPopOver
+        windowManager.popOver = menuPopOver
+        menuBarVC = menuPopOver
     }
 
     func setupStatusBarItem() {
         statusBarItem = NSStatusBar.system.statusItem(withLength: CGFloat(NSStatusItem.variableLength))
 
         if let button = statusBarItem.button {
-             button.image  = NSImage(named: "icon_clean")
+             button.image = NSImage(named: "icon_clean")
              button.action = #selector(togglePopover(_:))
         }
     }
