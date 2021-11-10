@@ -9,47 +9,40 @@
 import Combine
 import Foundation
 
-class LoginViewModel: ObservableObject {
+final class LoginViewModel: ObservableObject {
     
     // MARK: - Properties
+    private var cancellables = Set<AnyCancellable>()
+    private let windowManager: WindowManager
+    private let userDataSource: UserAPIProvider
+    private let projectsDataSource: ProjectsAPIProvider
+    private let projectsManager: ProjectsManager
+    private let authManager: AuthManager
     
-    private var cancellables = [AnyCancellable]()
-    
+    @Published var isLoading = false
     @Published var loginError = false
-    @Published var apiKey: String?
+    @Published var clockifyApiKey = ""
     
-    private var windowManager = WindowManager.shared
-    
-    // MARK: - Methods
-    
-    func login(_ apiKey: String) {
-        KeychainManager.shared.apiKey = apiKey
-        
-        UserAPI.shared
-            .getUser()
-            .sink(receiveCompletion: {
-                self.loginError               = true
-                KeychainManager.shared.apiKey = nil
-                DevLogManager.shared.logMessage(type: .api, message: "user request status: \($0)")
-            }, receiveValue: {
-                self.loginError = false
-                self.fetchProjects(for: $0.activeWorkspace)
-                AuthManager.shared.currentUser = $0
-                
-                WindowManager.shared.resizePopOver(to: .allVisible)
-            })
-            .store(in: &cancellables)
+    // MARK: - Init
+    init(userDataSource: UserAPIProvider = API.user,
+         projectsDataSource: ProjectsAPIProvider = API.projects,
+         projectsManager: ProjectsManager = .shared,
+         windowManager: WindowManager = .shared,
+         authManager: AuthManager = .shared) {
+        self.userDataSource = userDataSource
+        self.projectsDataSource = projectsDataSource
+        self.projectsManager = projectsManager
+        self.windowManager = windowManager
+        self.authManager = authManager
     }
     
-    func fetchProjects(for workspaceId: String) {
-        ProjectsAPI.shared
-            .getProjects(for: workspaceId)
-            .sink(receiveCompletion: {
-                DevLogManager.shared.logMessage(type: .api, message: "projects request status: \($0)")
-            }, receiveValue: {
-                ProjectsManager.shared.projects = $0
-            })
-            .store(in: &cancellables)
+    // MARK: - Methods
+    func didTapLogin() {
+        guard !clockifyApiKey.isEmpty else { return }
+        
+        Task {
+            await clockifyLogin(clockifyApiKey)
+        }
     }
     
     func quitApp() {
@@ -57,7 +50,27 @@ class LoginViewModel: ObservableObject {
     }
 }
 
-// MARK: - Constants
+private extension LoginViewModel {
+    
+    func clockifyLogin(_ apiKey: String) async {
+        defer { isLoading = false }
+        isLoading = true
+        
+        do {
+            let user = try await userDataSource.getClockifyUser()
+            let projects = try await projectsDataSource.getClockifyProjects(for: user.activeWorkspace)
+            
+            authManager.currentUser = user
+            projectsManager.projects = projects
+            
+            AppSecureKeys.clockifyAppToken = apiKey
+            windowManager.resizePopOver(to: .allVisible)
+        } catch {
+            authManager.logOut()
+            loginError = true
+        }
+    }
+}
 
 extension LoginViewModel {
     

@@ -6,58 +6,30 @@
 //  Copyright © 2020 Filippo Zaffoni. All rights reserved.
 //
 
-import Combine
 import Foundation
 
-class TimeEntriesViewModel: ObservableObject {
+final class TimeEntriesViewModel: ObservableObject {
     
     // MARK: - Properties
-    
-    private var cancellables = [AnyCancellable]()
+    let timeEntriesDataSource: TimeEntriesAPIProvider
     
     @Published var timeEntries = [TimeEntry]()
+    @Published var isLoading = false
     
-    // MARK: - Lifecycle
-    
-    init() {
-        guard let user = AuthManager.shared.currentUser else { return }
-        
-        if needsToUpdate {
-            fetchTimeEntries(for: user.id, in: user.activeWorkspace)
-        } else {
-            timeEntries = TimeEntriesAPI.shared.timeEntries
-        }
-        
-        NetworkManager.shared.$lastUpdateOfTimeEntries
-            .sink { if $0 == nil { self.fetchTimeEntries(for: user.id, in: user.activeWorkspace) } }
-            .store(in: &cancellables)
+    // MARK: - Init
+    init(timeEntriesDataSource: TimeEntriesAPIProvider = API.timeEntries, authManager: AuthManager = .shared) {
+        self.timeEntriesDataSource = timeEntriesDataSource
     }
     
     // MARK: - Methods
-    
-    func fetchTimeEntries(for userId: String, in workspaceId: String) {
-        TimeEntriesAPI.shared
-            .getTimeEntries(for: userId, in: workspaceId)
-            .sink(receiveCompletion: {
-                DevLogManager.shared.logMessage(type: .api, message: "time entries request status: \($0)")
-            }, receiveValue: {
-                self.timeEntries                              = $0
-                TimeEntriesAPI.shared.timeEntries             = $0
-                NetworkManager.shared.lastUpdateOfTimeEntries = Date()
-            })
-            .store(in: &cancellables)
-    }
-}
-
-private extension TimeEntriesViewModel {
-    
-    var needsToUpdate: Bool {
-        if
-            let lastUpdate = NetworkManager.shared.lastUpdateOfTimeEntries,
-            (Date().addingTimeInterval(-300)...Date()).contains(lastUpdate) {
-            return false
-        } else {
-            return true
+    func fetchTimeEntries(for userId: String, in workspaceId: String) async throws {
+        defer { isLoading = false }
+        isLoading = true
+        
+        do {
+            timeEntries = try await timeEntriesDataSource.getClockifyTimeEntries(for: userId, in: workspaceId)
+        } catch {
+            #warning("TODO: handle error")
         }
     }
 }

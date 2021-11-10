@@ -10,11 +10,13 @@ import SwiftUI
 
 struct TimeEntriesView: View {
     
-    @ObservedObject private var viewModel = TimeEntriesViewModel()
+    // MARK: - Properties
+    @ObservedObject var viewModel: TimeEntriesViewModel
     
+    // MARK: - Body
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            NewTimeEntryView()
+            NewTimeEntryView(viewModel: NewTimeEntryViewModel())
             
             Spacer(minLength: 10)
             
@@ -44,7 +46,6 @@ struct TimeEntriesView: View {
                 .listStyle(SidebarListStyle())
                 .padding(.leading, -18)
                 .padding(.trailing, -10)
-                .animation(.default)
         }
     }
 }

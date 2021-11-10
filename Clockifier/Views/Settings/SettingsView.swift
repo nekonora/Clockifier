@@ -10,29 +10,27 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    // MARK: - Observables
+    // MARK: - Properties
+    @ObservedObject var viewModel: SettingsViewModel
     
-    @ObservedObject private var viewModel = SettingsViewModel()
-    
+    // MARK: - Body
     var body: some View {
-        
         HStack {
-            
             Text(SettingsViewModel.Strings.settingsTitle)
                 .font(.system(Font.TextStyle.headline, design: .rounded))
                 .fontWeight(.semibold)
             
             Spacer()
             
-            Button(SettingsViewModel.Strings.logOutButton) { self.viewModel.logOut() }
-            
-            Button(SettingsViewModel.Strings.quitAppButton) { self.viewModel.quitApp() }
+            Button(SettingsViewModel.Strings.logOutButton, action: viewModel.logOut)
+            Button(SettingsViewModel.Strings.quitAppButton, action: viewModel.quitApp)
         }
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(viewModel: SettingsViewModel(authManager: .shared,
+                                                  windowManager: .shared))
     }
 }

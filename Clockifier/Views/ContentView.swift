@@ -10,27 +10,17 @@ import SwiftUI
 
 struct ContentView: View {
     
-    // MARK: - Observables
+    // MARK: - Properties
+    @ObservedObject var viewModel: ContentViewModel
     
-    @EnvironmentObject var authManager: AuthManager
-    
-    @ObservedObject private var viewModel = ContentViewModel()
-    
-    // MARK: - View
-    
+    // MARK: - Body
     var body: some View {
-        
         VStack(alignment: .center) {
-            
-            if authManager.currentUser == nil {
-                
-                LoginView()
-                
+            if viewModel.user == nil {
+                LoginView(viewModel: LoginViewModel())
             } else {
-                
                 HStack(alignment: .center) {
-                    
-                    Text(authManager.currentUser?.name ?? ContentViewModel.Strings.userPlaceholderName)
+                    Text(viewModel.user?.name ?? ContentViewModel.Strings.userPlaceholderName)
                         .font(.system(Font.TextStyle.footnote, design: .rounded))
                         .fontWeight(.semibold)
                         .padding(.horizontal, 10)
@@ -52,17 +42,14 @@ struct ContentView: View {
                 Spacer(minLength: 20)
                 
                 if viewModel.settingsShown {
-                    
                     Divider()
-                    
-                    SettingsView()
+                    SettingsView(viewModel: SettingsViewModel())
                 }
                 
                 Divider()
-                
-                TimeEntriesView()
+                TimeEntriesView(viewModel: TimeEntriesViewModel())
             }
-            
-        }.padding()
+        }
+        .padding()
     }
 }

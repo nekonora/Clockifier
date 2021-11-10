@@ -19,14 +19,9 @@ enum APIError: LocalizedError {
         case tokenFetch
     }
     
-    enum GamesError {
-        case couldNotFetchGame(message: String)
-        case couldNotFetchGames(message: String)
-    }
-    
     case networking(error: NetworkingError)
     case auth(error: AuthError)
-    case games(error: GamesError)
+    case encoding
     case generic(message: String)
     
     var errorDescription: String? {
@@ -49,11 +44,8 @@ enum APIError: LocalizedError {
             case .tokenFetch:
                 return "Could not parse token"
             }
-        case .games(let error):
-            switch error {
-            case .couldNotFetchGame(let message), .couldNotFetchGames(let message):
-                return message
-            }
+        case .encoding:
+            return "Error encoding data"
         case .generic(let message):
             return message
         }

@@ -17,18 +17,15 @@ enum LogLevel {
     case info, debug
 }
 
-class DevLogManager {
+final class DevLogManager {
     
     // MARK: - Instance
-    
     static let shared = DevLogManager()
     
     // MARK: - Properties
-    
     var logLevel: LogLevel = .info
     
     // MARK: - Class methods
-    
     func logMessage(type: LogMessage, message: String) {
         print(composeMessage(type: type, message: message))
     }
@@ -52,7 +49,10 @@ class DevLogManager {
     private func composeMessage(type: LogMessage, message: String) -> String {
         let prefix: String = {
             switch type {
-            case .api: return "\n[DEVLOG][API] - "
+            case .api:
+                return "\n[DEVLOG][API] - "
+            case .storage:
+                return "\n[DEVLOG][STORAGE] - "
             }
         }()
         

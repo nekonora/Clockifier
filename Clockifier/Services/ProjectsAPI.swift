@@ -6,29 +6,25 @@
 //  Copyright © 2020 Filippo Zaffoni. All rights reserved.
 //
 
-import Combine
 import Foundation
 
-class ProjectsAPI: NetworkHandler {
+protocol ProjectsAPIProvider: NetworkHandler {
+    func getClockifyProjects(for workspaceId: String) async throws -> [Project]
+}
+
+final class ProjectsAPI: ProjectsAPIProvider {
     
-    // MARK: - Properties
-    
-    var manager: NetworkManager = NetworkManager.shared
-    
-    private let projectsEndpoint = "workspaces/:workspaceId/projects"
-    
-    // MARK: - Instance
-    
-    static let shared = ProjectsAPI()
+    enum Endpoint {
+        static let clockifyProjects = "workspaces/:workspaceId/projects"
+    }
     
     // MARK: - Requests
-    
-    func getProjects(for workspaceId: String) -> AnyPublisher<[Project], Error> {
-        let endPoint = projectsEndpoint.replacingOccurrences(of: ":workspaceId", with: workspaceId)
-        DevLogManager.shared.logMessage(type: .api, message: "projects request")
-        return manager
-            .request(endPoint, method: .get)
-            .map(\.value)
-            .eraseToAnyPublisher()
+    func getClockifyProjects(for workspaceId: String) async throws -> [Project] {
+        let endpoint = Endpoint.clockifyProjects
+            .replacingOccurrences(of: ":workspaceId", with: workspaceId)
+        
+        return try await manager.request(service: .clockify,
+                                         endpoint: endpoint,
+                                         method: .get)
     }
 }

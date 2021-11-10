@@ -10,8 +10,10 @@ import SwiftUI
 
 struct NewTimeEntryView: View {
     
-    @ObservedObject private var viewModel = NewTimeEntryViewModel()
+    // MARK: - Properties
+    @ObservedObject var viewModel: NewTimeEntryViewModel
     
+    // MARK: - Body
     var body: some View {
         VStack(alignment: .leading) {
             Text(NewTimeEntryViewModel.Strings.quickEntryTitle)
@@ -69,11 +71,5 @@ extension NewTimeEntryView {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         return formatter
-    }
-}
-
-struct NewTimeEntryView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewTimeEntryView()
     }
 }

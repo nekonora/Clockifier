@@ -14,6 +14,10 @@ protocol NetworkHandler: AnyObject {
     var manager: NetworkManager { get }
 }
 
+extension NetworkHandler {
+    var manager: NetworkManager { .shared }
+}
+
 final class NetworkManager {
     
     // MARK: - Types
@@ -45,24 +49,28 @@ final class NetworkManager {
     }
     
     // MARK: - Properties
-    private let baseURL = URL(string: "https://api.clockify.me/api/v1")!
+    private let decoder: JSONDecoder
     
     // MARK: - Instance
     static let shared = NetworkManager()
     
-    private init() { }
+    private init() {
+        self.decoder = JSONDecoder()
+    }
     
     // MARK: - Methods
     func request(service: Service,
                  endpoint: String,
                  method: Method,
-                 parameters: Parameters,
-                 signed: Bool = true) async -> Result<Data, APIError> {
+                 parameters: Parameters? = nil,
+                 encoding: Encoding = .url,
+                 signed: Bool = true) async throws {
         let request = buildRequest(
             endpoint: endpoint,
             service: service,
             method: method,
             parameters: parameters,
+            encoding: encoding,
             signed: signed
         )
         
@@ -75,15 +83,53 @@ final class NetworkManager {
             let (data, response) = try await URLSession.shared.data(for: request)
             
             guard let httpResponse = response as? HTTPURLResponse else {
-                return .failure(.networking(error: .invalidResponse))
+                throw APIError.networking(error: .invalidResponse)
             }
             guard httpResponse.statusCode == 200 else {
-                return .failure(.networking(error: .wrongStatusCode(statusCode: httpResponse.statusCode, message: String(decoding: data, as: UTF8.self))))
+                let message = String(decoding: data, as: UTF8.self)
+                throw APIError.networking(error: .wrongStatusCode(statusCode: httpResponse.statusCode,
+                                                                  message: message))
+            }
+        } catch {
+            throw APIError.generic(message: error.localizedDescription)
+        }
+    }
+    
+    func request<T: Codable>(service: Service,
+                             endpoint: String,
+                             method: Method,
+                             parameters: Parameters? = nil,
+                             encoding: Encoding = .url,
+                             signed: Bool = true) async throws -> T {
+        let request = buildRequest(
+            endpoint: endpoint,
+            service: service,
+            method: method,
+            parameters: parameters,
+            encoding: encoding,
+            signed: signed
+        )
+        
+        DevLogManager.shared.logMessage(
+            type: .api,
+            message: "new request @ \(endpoint)"
+        )
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw APIError.networking(error: .invalidResponse)
+            }
+            guard httpResponse.statusCode == 200 else {
+                let message = String(decoding: data, as: UTF8.self)
+                throw APIError.networking(error: .wrongStatusCode(statusCode: httpResponse.statusCode,
+                                                                  message: message))
             }
             
-            return .success(data)
+            return try decoder.decode(T.self, from: data)
         } catch {
-            return .failure(.generic(message: error.localizedDescription))
+            throw APIError.generic(message: error.localizedDescription)
         }
     }
 }
@@ -94,48 +140,39 @@ private extension NetworkManager {
     func buildRequest(endpoint: String,
                       service: Service,
                       method: Method,
-                      parameters: Parameters,
+                      parameters: Parameters?,
                       encoding: Encoding,
                       signed: Bool) -> URLRequest {
         var endpointPath = service.baseURL.appendingPathComponent(endpoint)
+        var body: String?
         
-        switch encoding {
-        case .json:
-            do {
-                let jsonData = try JSONSerialization.data(withJSONObject: parameters, options: [])
-                let jsonString = String(data: jsonData, encoding: String.Encoding.ascii)!
-            } catch {
-                
-            }
-        case .url:
-            parameters.forEach { key, value in
-                endpointPath.append(name: key, value: value)
+        if let parameters = parameters {
+            switch encoding {
+            case .json:
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+                    body = String(data: jsonData, encoding: String.Encoding.ascii)
+                } catch {
+                    #warning("TODO: handle error")
+                }
+            case .url:
+                parameters.forEach { key, value in
+                    endpointPath.append(name: key, value: value)
+                }
             }
         }
         
-//        switch parameters {
-//        case .url(let params):
-//            params.forEach { key, value in
-//                endpointPath.append(name: key, value: value)
-//            }
-//        default:
-//            break
-//        }
-        
         var _request = URLRequest(url: endpointPath)
-        
-//        switch parameters {
-//        case .json(let body):
-//            _request.httpBody = body.data(using: .utf8, allowLossyConversion: false)
-//        default:
-//            break
-//        }
+        if let body = body {
+            _request.httpBody = body.data(using: .utf8, allowLossyConversion: false)
+        }
         
         if signed {
             switch service {
             case .clockify:
                 _request.setValue(AppSecureKeys.clockifyAppToken, forHTTPHeaderField: "X-Api-Key")
             case .harvest:
+                #warning("TODO: handle harvest signing")
                 _request.setValue(AppSecureKeys.harvestToken, forHTTPHeaderField: "")
             }
         }

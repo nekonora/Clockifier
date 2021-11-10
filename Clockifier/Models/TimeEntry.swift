@@ -21,14 +21,14 @@ extension TimeEntry {
     var clientName: String {
         ProjectsManager.shared
             .projects
-            .first(where: { $0.id == self.projectId })?
+            .first { $0.id == self.projectId }?
             .clientName ?? ""
     }
     
     var projectName: String {
         ProjectsManager.shared
             .projects
-            .first(where: { $0.id == self.projectId })?
+            .first { $0.id == self.projectId }?
             .name ?? ""
     }
     
@@ -63,19 +63,4 @@ struct TimeInterval: Codable, Hashable {
     let start: String
     let end: String
     let duration: String
-}
-
-// MARK: - New Time Entry
-
-struct NewTimeEntry: Codable {
-    
-    let start: String
-    let end: String
-
-    let description: String
-    let projectId: String
-    
-    var taskId = ""
-    var billable = "true"
-    var tagsIds = [String]()
 }

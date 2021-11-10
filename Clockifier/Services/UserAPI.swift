@@ -6,28 +6,22 @@
 //  Copyright © 2020 Filippo Zaffoni. All rights reserved.
 //
 
-import Combine
 import Foundation
 
-class UserAPI: NetworkHandler {
+protocol UserAPIProvider: NetworkHandler {
+    func getClockifyUser() async throws -> User
+}
+
+final class UserAPI: UserAPIProvider {
     
-    // MARK: - Properties
-    
-    var manager: NetworkManager = NetworkManager.shared
-    
-    private let userEndpoint = "user"
-    
-    // MARK: - Instance
-    
-    static let shared = UserAPI()
+    enum Endpoint {
+        static let clockifyUser = "user"
+    }
     
     // MARK: - Requests
-    
-    func getUser() -> AnyPublisher<User, Error> {
-        DevLogManager.shared.logMessage(type: .api, message: "user request")
-        return manager
-            .request(userEndpoint, method: .get)
-            .map(\.value)
-            .eraseToAnyPublisher()
+    func getClockifyUser() async throws -> User {
+        try await manager.request(service: .clockify,
+                              endpoint: Endpoint.clockifyUser,
+                              method: .get)
     }
 }

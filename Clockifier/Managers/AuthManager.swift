@@ -15,23 +15,13 @@ final class AuthManager: ObservableObject {
     
     @Published var currentUser: User?
     
-    private var loginVM: LoginViewModel?
-    
     // MARK: - Lifecycle
-    private init() {
-        logIn()
-    }
+    private init() { }
     
     // MARK: - Methods
-    func logIn() {
-//        guard let apiKey = KeychainManager.shared.apiKey else { return }
-//        loginVM = LoginViewModel()
-//        loginVM?.login(apiKey)
-    }
-    
     func logOut() {
-//        currentUser                                   = nil
-//        NetworkManager.shared.lastUpdateOfTimeEntries = nil
-//        UserDefaults.lastUsedProjectId                = nil
+        AppSecureKeys.reset()
+        AppPreferences.reset()
+        currentUser = nil
     }
 }

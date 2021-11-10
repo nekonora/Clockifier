@@ -13,6 +13,7 @@
 		FA35D6A52427DB1A00F7072C /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D6A42427DB1A00F7072C /* UserDefaults+.swift */; };
 		FA35D6A72427E1E100F7072C /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D6A62427E1E100F7072C /* Collection+.swift */; };
 		FA35D6A92427E36C00F7072C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D6A82427E36C00F7072C /* SettingsViewModel.swift */; };
+		FA3C023A273C2C0C0015A995 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C0239273C2C0C0015A995 /* API.swift */; };
 		FA417FDE242502F6004742EC /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA417FDD242502F6004742EC /* WindowManager.swift */; };
 		FA43C12E240FF3E10014A734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C12D240FF3E10014A734 /* AppDelegate.swift */; };
 		FA43C130240FF3E10014A734 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C12F240FF3E10014A734 /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 		FA43C167241162D20014A734 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C166241162D20014A734 /* ContentViewModel.swift */; };
 		FA43C169241255EC0014A734 /* NewTimeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C168241255EC0014A734 /* NewTimeEntryView.swift */; };
 		FA43C16C241259A00014A734 /* NewTimeEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C16B241259A00014A734 /* NewTimeEntryViewModel.swift */; };
+		FAA6C63C273BD0050046C641 /* ClockifyNewTimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6C63B273BD0050046C641 /* ClockifyNewTimeEntry.swift */; };
 		FACE8FF82414244100EC18AD /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FF72414244100EC18AD /* TimeEntry.swift */; };
 		FACE8FFA2414282400EC18AD /* TimeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FF92414282400EC18AD /* TimeEntryView.swift */; };
 		FACE8FFE24142BB800EC18AD /* ProjectsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FFD24142BB800EC18AD /* ProjectsAPI.swift */; };
@@ -51,6 +53,7 @@
 		FA35D6A42427DB1A00F7072C /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		FA35D6A62427E1E100F7072C /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
 		FA35D6A82427E36C00F7072C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		FA3C0239273C2C0C0015A995 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FA417FDD242502F6004742EC /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		FA43C12A240FF3E10014A734 /* Clockifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clockifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA43C12D240FF3E10014A734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +79,7 @@
 		FA43C166241162D20014A734 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		FA43C168241255EC0014A734 /* NewTimeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTimeEntryView.swift; sourceTree = "<group>"; };
 		FA43C16B241259A00014A734 /* NewTimeEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTimeEntryViewModel.swift; sourceTree = "<group>"; };
+		FAA6C63B273BD0050046C641 /* ClockifyNewTimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockifyNewTimeEntry.swift; sourceTree = "<group>"; };
 		FACE8FF72414244100EC18AD /* TimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntry.swift; sourceTree = "<group>"; };
 		FACE8FF92414282400EC18AD /* TimeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryView.swift; sourceTree = "<group>"; };
 		FACE8FFD24142BB800EC18AD /* ProjectsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsAPI.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				FA43C15F24111A230014A734 /* Project.swift */,
 				FACE8FF72414244100EC18AD /* TimeEntry.swift */,
 				FAD1D8AA26E021C000E4F3F5 /* APIError.swift */,
+				FAA6C63A273BCFF10046C641 /* ProxyModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,6 +230,14 @@
 			path = NewTimeEntry;
 			sourceTree = "<group>";
 		};
+		FAA6C63A273BCFF10046C641 /* ProxyModels */ = {
+			isa = PBXGroup;
+			children = (
+				FAA6C63B273BD0050046C641 /* ClockifyNewTimeEntry.swift */,
+			);
+			path = ProxyModels;
+			sourceTree = "<group>";
+		};
 		FACE8FFB2414282E00EC18AD /* TimeEntry */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +252,7 @@
 				FA43C15424106B190014A734 /* UserAPI.swift */,
 				FA43C15B241072580014A734 /* TimeEntriesAPI.swift */,
 				FACE8FFD24142BB800EC18AD /* ProjectsAPI.swift */,
+				FA3C0239273C2C0C0015A995 /* API.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -340,7 +354,9 @@
 				FA35D6A92427E36C00F7072C /* SettingsViewModel.swift in Sources */,
 				FA43C14A2410185B0014A734 /* User.swift in Sources */,
 				FA417FDE242502F6004742EC /* WindowManager.swift in Sources */,
+				FAA6C63C273BD0050046C641 /* ClockifyNewTimeEntry.swift in Sources */,
 				FA43C164241148D60014A734 /* SettingsView.swift in Sources */,
+				FA3C023A273C2C0C0015A995 /* API.swift in Sources */,
 				FA35D6A72427E1E100F7072C /* Collection+.swift in Sources */,
 				FA35D6A52427DB1A00F7072C /* UserDefaults+.swift in Sources */,
 				FA43C145241000E60014A734 /* NetworkManager.swift in Sources */,

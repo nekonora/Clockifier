@@ -25,8 +25,9 @@ extension Dictionary: PlistCompatible where Key: PlistCompatible, Value: PlistCo
 final class AppPreferences {
     
     // MARK: - Keys
-    enum StorageKey: String {
+    enum StorageKey: String, CaseIterable {
         case completedOnboarding
+        case lastUsedProjectId
     }
     
     // MARK: - Properties
@@ -34,16 +35,24 @@ final class AppPreferences {
     @Storage<Bool>(key: .completedOnboarding, defaultValue: false)
     static var completedOnboarding: Bool
     
+    @OptionalStorage<String>(key: .lastUsedProjectId)
+    static var lastUsedProjectId: String?
+    
     // MARK: - Methods
     static func removeData(for keys: Set<StorageKey>) {
         if keys.contains(.completedOnboarding) { completedOnboarding = false }
+        if keys.contains(.lastUsedProjectId) { lastUsedProjectId = nil }
+    }
+    
+    static func reset() {
+        removeData(for: Set(StorageKey.allCases))
     }
 }
 
 final class AppSecureKeys {
     
     // MARK: - Keys
-    enum SecureKey: String {
+    enum SecureKey: String, CaseIterable {
         case clockifyAppToken
         case harvestToken
     }
@@ -60,6 +69,10 @@ final class AppSecureKeys {
     static func removeData(for keys: Set<SecureKey>) {
         if keys.contains(.clockifyAppToken) { clockifyAppToken = nil }
         if keys.contains(.harvestToken) { harvestToken = nil }
+    }
+    
+    static func reset() {
+        removeData(for: Set(SecureKey.allCases))
     }
 }
 

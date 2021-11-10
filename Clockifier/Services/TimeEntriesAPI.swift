@@ -6,59 +6,56 @@
 //  Copyright © 2020 Filippo Zaffoni. All rights reserved.
 //
 
-import Combine
 import Foundation
 
-final class TimeEntriesAPI: NetworkHandler {
+protocol TimeEntriesAPIProvider: NetworkHandler {
+    func getClockifyTimeEntries(for userId: String, in workspaceId: String) async throws -> [TimeEntry]
+    func postClockifyNewTimeEntry(_ entry: ClockifyNewTimeEntry, in workspaceId: String) async throws
+}
+
+final class TimeEntriesAPI: TimeEntriesAPIProvider {
     
-    enum TimeEntriesError: Error {
-        case failedEncoding
+    enum Endpoint {
+        static let clockifyTimeEntries = "workspaces/:workspaceId/user/:userId/time-entries"
+        static let clockifyNewTimeEntry = "workspaces/:workspaceId/time-entries"
     }
     
-    // MARK: - Properties
-    
-    var manager: NetworkManager = NetworkManager.shared
-    
-    var timeEntries = [TimeEntry]()
-    
-    private let timeEntriesEndpoint  = "workspaces/:workspaceId/user/:userId/time-entries"
-    private let newTimeEntryEndpoint = "workspaces/:workspaceId/time-entries"
-    
-    // MARK: - Instance
-    
-    static let shared = TimeEntriesAPI()
-    
     // MARK: - Requests
-    
-    func getTimeEntries(for userId: String,
-                        in workspaceId: String) -> AnyPublisher<[TimeEntry], Error> {
-        let endPoint = timeEntriesEndpoint
+    func getClockifyTimeEntries(for userId: String, in workspaceId: String) async throws -> [TimeEntry] {
+        let endPoint = Endpoint.clockifyTimeEntries
             .replacingOccurrences(of: ":workspaceId", with: workspaceId)
             .replacingOccurrences(of: ":userId", with: userId)
         
-        DevLogManager.shared.logMessage(type: .api, message: "time entries request")
-        return manager
-            .request(endPoint, method: .get)
-            .map(\.value)
-            .eraseToAnyPublisher()
+        return try await manager.request(service: .clockify,
+                                         endpoint: endPoint,
+                                         method: .get)
     }
     
-    func postNewTimeEntry(_ entry: NewTimeEntry,
-                          in workspaceId: String) -> AnyPublisher<TimeEntry, Error> {
-        let endPoint = newTimeEntryEndpoint
+    func postClockifyNewTimeEntry(_ entry: ClockifyNewTimeEntry, in workspaceId: String) async throws {
+        let endpoint = Endpoint.clockifyNewTimeEntry
             .replacingOccurrences(of: ":workspaceId", with: workspaceId)
+        let params = mapClockifyNewTimeEntry(entry)
         
-        if
-            let jsonData = try? JSONEncoder().encode(entry),
-            let jsonString = String(data: jsonData, encoding: .utf8) {
-            DevLogManager.shared.logMessage(type: .api, message: "new time entry post")
-            
-            return manager
-                .request(endPoint, method: .post, body: jsonString)
-                .map(\.value)
-                .eraseToAnyPublisher()
-        } else {
-            return Fail(error: TimeEntriesError.failedEncoding).eraseToAnyPublisher()
-        }
+        return try await manager.request(service: .clockify,
+                                         endpoint: endpoint,
+                                         method: .post,
+                                         parameters: params,
+                                         encoding: .json)
+    }
+}
+
+// MARK: - Internals
+private extension TimeEntriesAPI {
+    
+    func mapClockifyNewTimeEntry(_ entry: ClockifyNewTimeEntry) -> Parameters {
+        [
+            "start": entry.start,
+            "end": entry.end,
+            "description": entry.description,
+            "projectId": entry.projectId,
+            "taskId": entry.taskId,
+            "billable": entry.billable,
+            "tagsIds": entry.tagsIds
+        ]
     }
 }

@@ -13,19 +13,17 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     // MARK: - Properties
-
     var window: NSWindow!
     
     var menuBarVC: NSPopover! { didSet {  } }
     var statusBarItem: NSStatusItem!
 
-    var authManager    = AuthManager.shared
-    var networkManager = NetworkManager.shared
+    let authManager = AuthManager.shared
+    let networkManager = NetworkManager.shared
     
     // MARK: - Lifecycle
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let rootView   = ContentView()
+        let rootView = ContentView(viewModel: ContentViewModel())
         setupPopOver(on: rootView)
         setupStatusBarItem()
     }
@@ -45,7 +43,6 @@ private extension AppDelegate {
             _popover.contentViewController = NSHostingController(
                 rootView: rootView
                     .environmentObject(authManager)
-                    .environmentObject(networkManager)
             )
             _popover.animates              = true
             return _popover

@@ -11,10 +11,10 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @ObservedObject private var viewModel = LoginViewModel()
+    // MARK: - Properties
+    @ObservedObject var viewModel: LoginViewModel
     
-    @State private var apiKey = String()
-    
+    // MARK: - Body
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             
@@ -30,14 +30,13 @@ struct LoginView: View {
             }
             
             HStack {
-                SecureField(LoginViewModel.Strings.textfieldPlaceholder, text: $apiKey)
-                
-                Button(LoginViewModel.Strings.loginButton) {
-                    self.viewModel.login(self.apiKey)
-                }.disabled(apiKey.isEmpty)
-            }.padding()
+                SecureField(LoginViewModel.Strings.textfieldPlaceholder, text: $viewModel.clockifyApiKey)
+                Button(LoginViewModel.Strings.loginButton, action: viewModel.didTapLogin)
+                    .disabled(viewModel.clockifyApiKey.isEmpty)
+            }
+            .padding()
             
-            if viewModel.loginError && !apiKey.isEmpty {
+            if viewModel.loginError && !viewModel.clockifyApiKey.isEmpty {
                 Text(LoginViewModel.Strings.loginError)
                     .font(.system(Font.TextStyle.footnote, design: .rounded))
                     .fontWeight(.semibold)
@@ -51,7 +50,7 @@ struct LoginView: View {
                 .fontWeight(.regular)
                 .frame(width: nil, height: 100, alignment: .center)
             
-            Button(SettingsViewModel.Strings.quitAppButton) { self.viewModel.quitApp() }
+            Button(SettingsViewModel.Strings.quitAppButton, action: viewModel.quitApp)
         }
     }
 }
