@@ -13,7 +13,7 @@ struct TimelineView: View {
     // MARK: - Body
     var body: some View {
         List(Array(0...100).map(String.init), id: \.self) { message in
-            NavigationLink(destination: EmptyView()) {
+            NavigationLink(destination: AutomationView(model: AutomationViewModel())) {
                 Text(message)
             }
         }

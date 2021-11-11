@@ -39,6 +39,9 @@
 		FA43C167241162D20014A734 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C166241162D20014A734 /* ContentViewModel.swift */; };
 		FA43C169241255EC0014A734 /* NewTimeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C168241255EC0014A734 /* NewTimeEntryView.swift */; };
 		FA43C16C241259A00014A734 /* NewTimeEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C16B241259A00014A734 /* NewTimeEntryViewModel.swift */; };
+		FA510AAE273D0A05005BDE1F /* AutomationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA510AAD273D0A05005BDE1F /* AutomationView.swift */; };
+		FA510AB2273D10A1005BDE1F /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA510AB1273D10A1005BDE1F /* View+.swift */; };
+		FA510AB4273D1E51005BDE1F /* AutomationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA510AB3273D1E51005BDE1F /* AutomationViewModel.swift */; };
 		FAA6C63C273BD0050046C641 /* ClockifyNewTimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6C63B273BD0050046C641 /* ClockifyNewTimeEntry.swift */; };
 		FACE8FF82414244100EC18AD /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FF72414244100EC18AD /* TimeEntry.swift */; };
 		FACE8FFA2414282400EC18AD /* TimeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FF92414282400EC18AD /* TimeEntryView.swift */; };
@@ -85,6 +88,9 @@
 		FA43C166241162D20014A734 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		FA43C168241255EC0014A734 /* NewTimeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTimeEntryView.swift; sourceTree = "<group>"; };
 		FA43C16B241259A00014A734 /* NewTimeEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTimeEntryViewModel.swift; sourceTree = "<group>"; };
+		FA510AAD273D0A05005BDE1F /* AutomationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomationView.swift; sourceTree = "<group>"; };
+		FA510AB1273D10A1005BDE1F /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		FA510AB3273D1E51005BDE1F /* AutomationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomationViewModel.swift; sourceTree = "<group>"; };
 		FAA6C63B273BD0050046C641 /* ClockifyNewTimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockifyNewTimeEntry.swift; sourceTree = "<group>"; };
 		FACE8FF72414244100EC18AD /* TimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntry.swift; sourceTree = "<group>"; };
 		FACE8FF92414282400EC18AD /* TimeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryView.swift; sourceTree = "<group>"; };
@@ -124,6 +130,8 @@
 				FA33E617273C8DD4001F455C /* MainWindowView.swift */,
 				FA33E619273C8FB7001F455C /* SidebarView.swift */,
 				FA33E61B273C9332001F455C /* TimelineView.swift */,
+				FA510AAD273D0A05005BDE1F /* AutomationView.swift */,
+				FA510AB3273D1E51005BDE1F /* AutomationViewModel.swift */,
 			);
 			path = Window;
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 				FA35D6A42427DB1A00F7072C /* UserDefaults+.swift */,
 				FA35D6A62427E1E100F7072C /* Collection+.swift */,
 				FAD3321826E0229E00A745EB /* URL+.swift */,
+				FA510AB1273D10A1005BDE1F /* View+.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -365,6 +374,7 @@
 				FAD3321926E0229E00A745EB /* URL+.swift in Sources */,
 				FACE8FFE24142BB800EC18AD /* ProjectsAPI.swift in Sources */,
 				FA33E61A273C8FB7001F455C /* SidebarView.swift in Sources */,
+				FA510AAE273D0A05005BDE1F /* AutomationView.swift in Sources */,
 				FACE8FFA2414282400EC18AD /* TimeEntryView.swift in Sources */,
 				FA43C130240FF3E10014A734 /* ContentView.swift in Sources */,
 				FA43C15524106B190014A734 /* UserAPI.swift in Sources */,
@@ -390,7 +400,9 @@
 				FA43C145241000E60014A734 /* NetworkManager.swift in Sources */,
 				FAD1D8AB26E021C000E4F3F5 /* APIError.swift in Sources */,
 				FA43C15E24107F7F0014A734 /* LoginViewModel.swift in Sources */,
+				FA510AB4273D1E51005BDE1F /* AutomationViewModel.swift in Sources */,
 				FA43C15224106A8F0014A734 /* DevLogManager.swift in Sources */,
+				FA510AB2273D10A1005BDE1F /* View+.swift in Sources */,
 				FA43C12E240FF3E10014A734 /* AppDelegate.swift in Sources */,
 				FA43C143241000DD0014A734 /* Constants.swift in Sources */,
 				FA43C157241070EF0014A734 /* AuthManager.swift in Sources */,
