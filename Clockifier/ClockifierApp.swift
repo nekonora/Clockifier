@@ -15,7 +15,8 @@ struct ClockifierApp: App {
     // MARK: - Body
     var body: some Scene {
         WindowGroup {
-            Color.blue
+            MainWindowView()
         }
+        .windowToolbarStyle(.unified(showsTitle: false))
     }
 }

@@ -11,6 +11,9 @@
 		FA14C29C241D85FE004FB6B4 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C29B241D85FE004FB6B4 /* DateFormatter+.swift */; };
 		FA14C29E241D87BF004FB6B4 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C29D241D87BF004FB6B4 /* Date+.swift */; };
 		FA33E614273C8C10001F455C /* ClockifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33E613273C8C10001F455C /* ClockifierApp.swift */; };
+		FA33E618273C8DD4001F455C /* MainWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33E617273C8DD4001F455C /* MainWindowView.swift */; };
+		FA33E61A273C8FB7001F455C /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33E619273C8FB7001F455C /* SidebarView.swift */; };
+		FA33E61C273C9332001F455C /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33E61B273C9332001F455C /* TimelineView.swift */; };
 		FA35D6A52427DB1A00F7072C /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D6A42427DB1A00F7072C /* UserDefaults+.swift */; };
 		FA35D6A72427E1E100F7072C /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D6A62427E1E100F7072C /* Collection+.swift */; };
 		FA35D6A92427E36C00F7072C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35D6A82427E36C00F7072C /* SettingsViewModel.swift */; };
@@ -51,6 +54,9 @@
 		FA14C29B241D85FE004FB6B4 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
 		FA14C29D241D87BF004FB6B4 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		FA33E613273C8C10001F455C /* ClockifierApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockifierApp.swift; sourceTree = "<group>"; };
+		FA33E617273C8DD4001F455C /* MainWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowView.swift; sourceTree = "<group>"; };
+		FA33E619273C8FB7001F455C /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		FA33E61B273C9332001F455C /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		FA35D6A42427DB1A00F7072C /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		FA35D6A62427E1E100F7072C /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
 		FA35D6A82427E36C00F7072C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -115,6 +121,9 @@
 		FA33E616273C8CD6001F455C /* Window */ = {
 			isa = PBXGroup;
 			children = (
+				FA33E617273C8DD4001F455C /* MainWindowView.swift */,
+				FA33E619273C8FB7001F455C /* SidebarView.swift */,
+				FA33E61B273C9332001F455C /* TimelineView.swift */,
 			);
 			path = Window;
 			sourceTree = "<group>";
@@ -349,11 +358,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA33E61C273C9332001F455C /* TimelineView.swift in Sources */,
 				FAD1D8A626E0204A00E4F3F5 /* AppPreferences.swift in Sources */,
 				FA43C162241132CA0014A734 /* TimeEntriesViewModel.swift in Sources */,
 				FA33E614273C8C10001F455C /* ClockifierApp.swift in Sources */,
 				FAD3321926E0229E00A745EB /* URL+.swift in Sources */,
 				FACE8FFE24142BB800EC18AD /* ProjectsAPI.swift in Sources */,
+				FA33E61A273C8FB7001F455C /* SidebarView.swift in Sources */,
 				FACE8FFA2414282400EC18AD /* TimeEntryView.swift in Sources */,
 				FA43C130240FF3E10014A734 /* ContentView.swift in Sources */,
 				FA43C15524106B190014A734 /* UserAPI.swift in Sources */,
@@ -366,6 +377,7 @@
 				FA43C15C241072580014A734 /* TimeEntriesAPI.swift in Sources */,
 				FA14C29E241D87BF004FB6B4 /* Date+.swift in Sources */,
 				FA43C16024111A230014A734 /* Project.swift in Sources */,
+				FA33E618273C8DD4001F455C /* MainWindowView.swift in Sources */,
 				FA43C159241072450014A734 /* TimeEntriesView.swift in Sources */,
 				FA35D6A92427E36C00F7072C /* SettingsViewModel.swift in Sources */,
 				FA43C14A2410185B0014A734 /* User.swift in Sources */,
