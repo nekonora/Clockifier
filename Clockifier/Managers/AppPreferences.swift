@@ -8,6 +8,7 @@
 
 import Foundation
 import KeychainAccess
+import LogManager
 
 public protocol PlistCompatible { }
 
@@ -123,10 +124,8 @@ struct SecureStorage {
             do {
                 return try storage.getString(key.rawValue)
             } catch {
-                DevLogManager.shared.logMessage(
-                    type: .storage,
-                    message: "Keychain failed to get value for \(key.rawValue)\n\(error.localizedDescription)"
-                )
+                LogManager.shared.logMessage(source: .storage,
+                                             message: "Keychain failed to get value for \(key.rawValue)\n\(error.localizedDescription)")
                 return nil
             }
         }
@@ -135,19 +134,15 @@ struct SecureStorage {
                 do {
                     try storage.set(value, key: key.rawValue)
                 } catch {
-                    DevLogManager.shared.logMessage(
-                        type: .storage,
-                        message: "Keychain failed to set \(value) in \(key.rawValue)\n\(error.localizedDescription)"
-                    )
+                    LogManager.shared.logMessage(source: .storage,
+                                                 message: "Keychain failed to set \(value) in \(key.rawValue)\n\(error.localizedDescription)")
                 }
             } else {
                 do {
                     try storage.remove(key.rawValue)
                 } catch let error {
-                    DevLogManager.shared.logMessage(
-                        type: .storage,
-                        message: "Keychain failed to set \(newValue ?? "nil") in \(key.rawValue)\n\(error.localizedDescription)"
-                    )
+                    LogManager.shared.logMessage(source: .storage,
+                                                 message: "Keychain failed to set \(newValue ?? "nil") in \(key.rawValue)\n\(error.localizedDescription)")
                 }
             }
         }

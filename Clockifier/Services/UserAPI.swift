@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import NetworkManager
 
 protocol UserAPIProvider: NetworkHandler {
     func getClockifyUser() async throws -> User
@@ -20,8 +21,8 @@ final class UserAPI: UserAPIProvider {
     
     // MARK: - Requests
     func getClockifyUser() async throws -> User {
-        try await manager.request(service: .clockify,
-                              endpoint: Endpoint.clockifyUser,
-                              method: .get)
+        try await manager.request(baseURL: Service.clockify.baseURL,
+                                  endpoint: Endpoint.clockifyUser,
+                                  method: .get)
     }
 }

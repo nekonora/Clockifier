@@ -8,7 +8,9 @@
 
 import SwiftUI
 
+// MARK: - On tap gesture with coordinates
 struct OnTap: ViewModifier {
+    
     let response: (CGPoint) -> Void
     
     @State private var location: CGPoint = .zero

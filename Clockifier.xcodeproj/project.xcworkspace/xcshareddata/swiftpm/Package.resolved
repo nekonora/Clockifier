@@ -9,6 +9,24 @@
           "revision": "84e546727d66f1adc5439debad16270d0fdd04e7",
           "version": "4.2.2"
         }
+      },
+      {
+        "package": "LogManager",
+        "repositoryURL": "https://github.com/nekonora/logmanager.git",
+        "state": {
+          "branch": null,
+          "revision": "7023bc3b35e2887fd6cbf63417bef87e6c1b49a2",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "NetworkManager",
+        "repositoryURL": "https://github.com/nekonora/NetworkManager.git",
+        "state": {
+          "branch": null,
+          "revision": "4a8b3ac6df107a846926d0c55ab4a250c6f1b184",
+          "version": "1.0.1"
+        }
       }
     ]
   },

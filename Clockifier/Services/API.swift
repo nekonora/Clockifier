@@ -13,3 +13,14 @@ final class API {
     static let timeEntries: TimeEntriesAPIProvider = TimeEntriesAPI()
     static let projects: ProjectsAPIProvider = ProjectsAPI()
 }
+
+enum Service {
+    case clockify, harvest
+    
+    var baseURL: URL {
+        switch self {
+        case .clockify: return URL(staticString: Constants.API.clockifyBaseUrl)
+        case .harvest: return URL(staticString: Constants.API.harvestBaseUrl)
+        }
+    }
+}

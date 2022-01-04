@@ -40,12 +40,7 @@ struct TimeEntriesView: View {
                     .frame(width: 100, height: 10, alignment: .leading)
             }
             
-            List(viewModel.timeEntries) {
-                TimeEntryView(timeEntry: $0)
-            }
-                .listStyle(SidebarListStyle())
-                .padding(.leading, -18)
-                .padding(.trailing, -10)
+            TimeEntriesList(timeEntries: viewModel.timeEntries)
         }
     }
 }

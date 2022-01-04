@@ -16,11 +16,22 @@ struct SidebarView: View {
     // MARK: - Body
     var body: some View {
         List {
-            NavigationLink(destination: TimelineView(), isActive: $isDefaultItemActive) {
-                Label("Console", systemImage: "message")
+            Section("Services") {
+                NavigationLink(destination: TimeEntriesView(viewModel: TimeEntriesViewModel()), isActive: $isDefaultItemActive) {
+                    Label("All", systemImage: "message")
+                }
+                NavigationLink(destination: EmptyView()) {
+                    Label("Clockify", systemImage: "paperplane")
+                }
+                NavigationLink(destination: EmptyView()) {
+                    Label("Harvest", systemImage: "paperplane")
+                }
             }
-            NavigationLink(destination: EmptyView()) {
-                Label("Sent", systemImage: "paperplane")
+            
+            Section("Other") {
+                NavigationLink(destination: TimelineView()) {
+                    Label("Templates", systemImage: "message")
+                }
             }
         }
         .listStyle(SidebarListStyle())

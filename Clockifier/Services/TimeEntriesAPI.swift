@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import NetworkManager
 
 protocol TimeEntriesAPIProvider: NetworkHandler {
     func getClockifyTimeEntries(for userId: String, in workspaceId: String) async throws -> [TimeEntry]
@@ -26,7 +27,7 @@ final class TimeEntriesAPI: TimeEntriesAPIProvider {
             .replacingOccurrences(of: ":workspaceId", with: workspaceId)
             .replacingOccurrences(of: ":userId", with: userId)
         
-        return try await manager.request(service: .clockify,
+        return try await manager.request(baseURL: Service.clockify.baseURL,
                                          endpoint: endPoint,
                                          method: .get)
     }
@@ -36,7 +37,7 @@ final class TimeEntriesAPI: TimeEntriesAPIProvider {
             .replacingOccurrences(of: ":workspaceId", with: workspaceId)
         let params = mapClockifyNewTimeEntry(entry)
         
-        return try await manager.request(service: .clockify,
+        return try await manager.request(baseURL: Service.clockify.baseURL,
                                          endpoint: endpoint,
                                          method: .post,
                                          parameters: params,
@@ -47,7 +48,7 @@ final class TimeEntriesAPI: TimeEntriesAPIProvider {
 // MARK: - Internals
 private extension TimeEntriesAPI {
     
-    func mapClockifyNewTimeEntry(_ entry: ClockifyNewTimeEntry) -> Parameters {
+    func mapClockifyNewTimeEntry(_ entry: ClockifyNewTimeEntry) -> NetworkParameters {
         [
             "start": entry.start,
             "end": entry.end,

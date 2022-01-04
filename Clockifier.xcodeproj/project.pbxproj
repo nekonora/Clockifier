@@ -10,6 +10,7 @@
 		FA14C29A241D72A2004FB6B4 /* ProjectsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C299241D72A2004FB6B4 /* ProjectsManager.swift */; };
 		FA14C29C241D85FE004FB6B4 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C29B241D85FE004FB6B4 /* DateFormatter+.swift */; };
 		FA14C29E241D87BF004FB6B4 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14C29D241D87BF004FB6B4 /* Date+.swift */; };
+		FA1764DC278495CE00D9C153 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1764DB278495CE00D9C153 /* Services.swift */; };
 		FA33E614273C8C10001F455C /* ClockifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33E613273C8C10001F455C /* ClockifierApp.swift */; };
 		FA33E618273C8DD4001F455C /* MainWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33E617273C8DD4001F455C /* MainWindowView.swift */; };
 		FA33E61A273C8FB7001F455C /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33E619273C8FB7001F455C /* SidebarView.swift */; };
@@ -24,10 +25,8 @@
 		FA43C132240FF3E50014A734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA43C131240FF3E50014A734 /* Assets.xcassets */; };
 		FA43C135240FF3E50014A734 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA43C134240FF3E50014A734 /* Preview Assets.xcassets */; };
 		FA43C143241000DD0014A734 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C142241000DD0014A734 /* Constants.swift */; };
-		FA43C145241000E60014A734 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C144241000E60014A734 /* NetworkManager.swift */; };
 		FA43C14A2410185B0014A734 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C1492410185B0014A734 /* User.swift */; };
 		FA43C15024101AF50014A734 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C14F24101AF50014A734 /* LoginView.swift */; };
-		FA43C15224106A8F0014A734 /* DevLogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C15124106A8F0014A734 /* DevLogManager.swift */; };
 		FA43C15524106B190014A734 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C15424106B190014A734 /* UserAPI.swift */; };
 		FA43C157241070EF0014A734 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C156241070EF0014A734 /* AuthManager.swift */; };
 		FA43C159241072450014A734 /* TimeEntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C158241072450014A734 /* TimeEntriesView.swift */; };
@@ -39,16 +38,17 @@
 		FA43C167241162D20014A734 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C166241162D20014A734 /* ContentViewModel.swift */; };
 		FA43C169241255EC0014A734 /* NewTimeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C168241255EC0014A734 /* NewTimeEntryView.swift */; };
 		FA43C16C241259A00014A734 /* NewTimeEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43C16B241259A00014A734 /* NewTimeEntryViewModel.swift */; };
-		FA510AAE273D0A05005BDE1F /* AutomationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA510AAD273D0A05005BDE1F /* AutomationView.swift */; };
 		FA510AB2273D10A1005BDE1F /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA510AB1273D10A1005BDE1F /* View+.swift */; };
-		FA510AB4273D1E51005BDE1F /* AutomationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA510AB3273D1E51005BDE1F /* AutomationViewModel.swift */; };
+		FA510ABF273D938D005BDE1F /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA510ABE273D938D005BDE1F /* Color+.swift */; };
+		FA510AC5273DA4F3005BDE1F /* TimeEntriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA510AC4273DA4F3005BDE1F /* TimeEntriesList.swift */; };
 		FAA6C63C273BD0050046C641 /* ClockifyNewTimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6C63B273BD0050046C641 /* ClockifyNewTimeEntry.swift */; };
+		FAB893242784D81D005E5ECA /* LogManager in Frameworks */ = {isa = PBXBuildFile; productRef = FAB893232784D81D005E5ECA /* LogManager */; };
+		FAB893272784D853005E5ECA /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = FAB893262784D853005E5ECA /* NetworkManager */; };
 		FACE8FF82414244100EC18AD /* TimeEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FF72414244100EC18AD /* TimeEntry.swift */; };
 		FACE8FFA2414282400EC18AD /* TimeEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FF92414282400EC18AD /* TimeEntryView.swift */; };
 		FACE8FFE24142BB800EC18AD /* ProjectsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE8FFD24142BB800EC18AD /* ProjectsAPI.swift */; };
 		FAD1D8A626E0204A00E4F3F5 /* AppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1D8A526E0204A00E4F3F5 /* AppPreferences.swift */; };
 		FAD1D8A926E0208E00E4F3F5 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = FAD1D8A826E0208E00E4F3F5 /* KeychainAccess */; };
-		FAD1D8AB26E021C000E4F3F5 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD1D8AA26E021C000E4F3F5 /* APIError.swift */; };
 		FAD3321926E0229E00A745EB /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3321826E0229E00A745EB /* URL+.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +56,7 @@
 		FA14C299241D72A2004FB6B4 /* ProjectsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsManager.swift; sourceTree = "<group>"; };
 		FA14C29B241D85FE004FB6B4 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
 		FA14C29D241D87BF004FB6B4 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		FA1764DB278495CE00D9C153 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		FA33E613273C8C10001F455C /* ClockifierApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockifierApp.swift; sourceTree = "<group>"; };
 		FA33E617273C8DD4001F455C /* MainWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowView.swift; sourceTree = "<group>"; };
 		FA33E619273C8FB7001F455C /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
@@ -73,10 +74,8 @@
 		FA43C139240FF3E50014A734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA43C13A240FF3E50014A734 /* Clockifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clockifier.entitlements; sourceTree = "<group>"; };
 		FA43C142241000DD0014A734 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FA43C144241000E60014A734 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FA43C1492410185B0014A734 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA43C14F24101AF50014A734 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		FA43C15124106A8F0014A734 /* DevLogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevLogManager.swift; sourceTree = "<group>"; };
 		FA43C15424106B190014A734 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		FA43C156241070EF0014A734 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FA43C158241072450014A734 /* TimeEntriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesView.swift; sourceTree = "<group>"; };
@@ -88,15 +87,14 @@
 		FA43C166241162D20014A734 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		FA43C168241255EC0014A734 /* NewTimeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTimeEntryView.swift; sourceTree = "<group>"; };
 		FA43C16B241259A00014A734 /* NewTimeEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTimeEntryViewModel.swift; sourceTree = "<group>"; };
-		FA510AAD273D0A05005BDE1F /* AutomationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomationView.swift; sourceTree = "<group>"; };
 		FA510AB1273D10A1005BDE1F /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
-		FA510AB3273D1E51005BDE1F /* AutomationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomationViewModel.swift; sourceTree = "<group>"; };
+		FA510ABE273D938D005BDE1F /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		FA510AC4273DA4F3005BDE1F /* TimeEntriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntriesList.swift; sourceTree = "<group>"; };
 		FAA6C63B273BD0050046C641 /* ClockifyNewTimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockifyNewTimeEntry.swift; sourceTree = "<group>"; };
 		FACE8FF72414244100EC18AD /* TimeEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntry.swift; sourceTree = "<group>"; };
 		FACE8FF92414282400EC18AD /* TimeEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeEntryView.swift; sourceTree = "<group>"; };
 		FACE8FFD24142BB800EC18AD /* ProjectsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsAPI.swift; sourceTree = "<group>"; };
 		FAD1D8A526E0204A00E4F3F5 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
-		FAD1D8AA26E021C000E4F3F5 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		FAD3321826E0229E00A745EB /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +104,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD1D8A926E0208E00E4F3F5 /* KeychainAccess in Frameworks */,
+				FAB893242784D81D005E5ECA /* LogManager in Frameworks */,
+				FAB893272784D853005E5ECA /* NetworkManager in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,8 +130,6 @@
 				FA33E617273C8DD4001F455C /* MainWindowView.swift */,
 				FA33E619273C8FB7001F455C /* SidebarView.swift */,
 				FA33E61B273C9332001F455C /* TimelineView.swift */,
-				FA510AAD273D0A05005BDE1F /* AutomationView.swift */,
-				FA510AB3273D1E51005BDE1F /* AutomationViewModel.swift */,
 			);
 			path = Window;
 			sourceTree = "<group>";
@@ -184,7 +182,6 @@
 				FA43C1492410185B0014A734 /* User.swift */,
 				FA43C15F24111A230014A734 /* Project.swift */,
 				FACE8FF72414244100EC18AD /* TimeEntry.swift */,
-				FAD1D8AA26E021C000E4F3F5 /* APIError.swift */,
 				FAA6C63A273BCFF10046C641 /* ProxyModels */,
 			);
 			path = Models;
@@ -196,8 +193,7 @@
 				FAD1D8A526E0204A00E4F3F5 /* AppPreferences.swift */,
 				FA43C156241070EF0014A734 /* AuthManager.swift */,
 				FA417FDD242502F6004742EC /* WindowManager.swift */,
-				FA43C15124106A8F0014A734 /* DevLogManager.swift */,
-				FA43C144241000E60014A734 /* NetworkManager.swift */,
+				FA1764DB278495CE00D9C153 /* Services.swift */,
 				FA14C299241D72A2004FB6B4 /* ProjectsManager.swift */,
 			);
 			path = Managers;
@@ -206,6 +202,7 @@
 		FA43C14D24101AB50014A734 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA510AB9273D83A5005BDE1F /* Shared */,
 				FA33E616273C8CD6001F455C /* Window */,
 				FA33E615273C8CCC001F455C /* MenuBar */,
 			);
@@ -222,6 +219,7 @@
 				FA35D6A62427E1E100F7072C /* Collection+.swift */,
 				FAD3321826E0229E00A745EB /* URL+.swift */,
 				FA510AB1273D10A1005BDE1F /* View+.swift */,
+				FA510ABE273D938D005BDE1F /* Color+.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -239,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				FA43C158241072450014A734 /* TimeEntriesView.swift */,
+				FA510AC4273DA4F3005BDE1F /* TimeEntriesList.swift */,
 				FA43C161241132CA0014A734 /* TimeEntriesViewModel.swift */,
 				FACE8FFB2414282E00EC18AD /* TimeEntry */,
 				FA43C16A241255F00014A734 /* NewTimeEntry */,
@@ -262,6 +261,13 @@
 				FA43C16B241259A00014A734 /* NewTimeEntryViewModel.swift */,
 			);
 			path = NewTimeEntry;
+			sourceTree = "<group>";
+		};
+		FA510AB9273D83A5005BDE1F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		FAA6C63A273BCFF10046C641 /* ProxyModels */ = {
@@ -309,6 +315,8 @@
 			name = Clockifier;
 			packageProductDependencies = (
 				FAD1D8A826E0208E00E4F3F5 /* KeychainAccess */,
+				FAB893232784D81D005E5ECA /* LogManager */,
+				FAB893262784D853005E5ECA /* NetworkManager */,
 			);
 			productName = Clockifier;
 			productReference = FA43C12A240FF3E10014A734 /* Clockifier.app */;
@@ -340,6 +348,8 @@
 			mainGroup = FA43C121240FF3E10014A734;
 			packageReferences = (
 				FAD1D8A726E0208E00E4F3F5 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				FAB893222784D81D005E5ECA /* XCRemoteSwiftPackageReference "logmanager" */,
+				FAB893252784D853005E5ECA /* XCRemoteSwiftPackageReference "NetworkManager" */,
 			);
 			productRefGroup = FA43C12B240FF3E10014A734 /* Products */;
 			projectDirPath = "";
@@ -371,10 +381,11 @@
 				FAD1D8A626E0204A00E4F3F5 /* AppPreferences.swift in Sources */,
 				FA43C162241132CA0014A734 /* TimeEntriesViewModel.swift in Sources */,
 				FA33E614273C8C10001F455C /* ClockifierApp.swift in Sources */,
+				FA1764DC278495CE00D9C153 /* Services.swift in Sources */,
 				FAD3321926E0229E00A745EB /* URL+.swift in Sources */,
 				FACE8FFE24142BB800EC18AD /* ProjectsAPI.swift in Sources */,
 				FA33E61A273C8FB7001F455C /* SidebarView.swift in Sources */,
-				FA510AAE273D0A05005BDE1F /* AutomationView.swift in Sources */,
+				FA510ABF273D938D005BDE1F /* Color+.swift in Sources */,
 				FACE8FFA2414282400EC18AD /* TimeEntryView.swift in Sources */,
 				FA43C130240FF3E10014A734 /* ContentView.swift in Sources */,
 				FA43C15524106B190014A734 /* UserAPI.swift in Sources */,
@@ -388,6 +399,7 @@
 				FA14C29E241D87BF004FB6B4 /* Date+.swift in Sources */,
 				FA43C16024111A230014A734 /* Project.swift in Sources */,
 				FA33E618273C8DD4001F455C /* MainWindowView.swift in Sources */,
+				FA510AC5273DA4F3005BDE1F /* TimeEntriesList.swift in Sources */,
 				FA43C159241072450014A734 /* TimeEntriesView.swift in Sources */,
 				FA35D6A92427E36C00F7072C /* SettingsViewModel.swift in Sources */,
 				FA43C14A2410185B0014A734 /* User.swift in Sources */,
@@ -397,11 +409,7 @@
 				FA3C023A273C2C0C0015A995 /* API.swift in Sources */,
 				FA35D6A72427E1E100F7072C /* Collection+.swift in Sources */,
 				FA35D6A52427DB1A00F7072C /* UserDefaults+.swift in Sources */,
-				FA43C145241000E60014A734 /* NetworkManager.swift in Sources */,
-				FAD1D8AB26E021C000E4F3F5 /* APIError.swift in Sources */,
 				FA43C15E24107F7F0014A734 /* LoginViewModel.swift in Sources */,
-				FA510AB4273D1E51005BDE1F /* AutomationViewModel.swift in Sources */,
-				FA43C15224106A8F0014A734 /* DevLogManager.swift in Sources */,
 				FA510AB2273D10A1005BDE1F /* View+.swift in Sources */,
 				FA43C12E240FF3E10014A734 /* AppDelegate.swift in Sources */,
 				FA43C143241000DD0014A734 /* Constants.swift in Sources */,
@@ -600,6 +608,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FAB893222784D81D005E5ECA /* XCRemoteSwiftPackageReference "logmanager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nekonora/logmanager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		FAB893252784D853005E5ECA /* XCRemoteSwiftPackageReference "NetworkManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nekonora/NetworkManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		FAD1D8A726E0208E00E4F3F5 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
@@ -611,6 +635,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FAB893232784D81D005E5ECA /* LogManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAB893222784D81D005E5ECA /* XCRemoteSwiftPackageReference "logmanager" */;
+			productName = LogManager;
+		};
+		FAB893262784D853005E5ECA /* NetworkManager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAB893252784D853005E5ECA /* XCRemoteSwiftPackageReference "NetworkManager" */;
+			productName = NetworkManager;
+		};
 		FAD1D8A826E0208E00E4F3F5 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FAD1D8A726E0208E00E4F3F5 /* XCRemoteSwiftPackageReference "KeychainAccess" */;

@@ -18,7 +18,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarItem: NSStatusItem!
 
     let authManager = AuthManager.shared
-    let networkManager = NetworkManager.shared
     let windowManager = WindowManager.shared
     
     // MARK: - Lifecycle

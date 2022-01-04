@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import NetworkManager
 
 protocol ProjectsAPIProvider: NetworkHandler {
     func getClockifyProjects(for workspaceId: String) async throws -> [Project]
@@ -23,7 +24,7 @@ final class ProjectsAPI: ProjectsAPIProvider {
         let endpoint = Endpoint.clockifyProjects
             .replacingOccurrences(of: ":workspaceId", with: workspaceId)
         
-        return try await manager.request(service: .clockify,
+        return try await manager.request(baseURL: Service.clockify.baseURL,
                                          endpoint: endpoint,
                                          method: .get)
     }

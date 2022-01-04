@@ -20,6 +20,4 @@ struct MainWindowView: View {
             Text("No Message Selection")
         }
     }
-    
-    
 }
